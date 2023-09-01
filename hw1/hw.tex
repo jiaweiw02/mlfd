@@ -6,5 +6,18 @@
 \onehalfspacing
 
 \begin{document}
-    here's something
+    \begin{enumerate}
+        \item Exercise 1.3 in LFD
+        \begin{enumerate}[label=(\alph*)]
+            \item We can consider 2 cases for this problem, case 1 is that $x(t)$ is misclassified to $-1$ when it is supposed to be $+1$. In this case, $y(t)$ should equal $+1$, and $x(t)$ should equal $-1$, the product of any number with a negative number is always negative. The other case would be $x(t) = +1$, and $y(t) = -1$, where the same rule will apply.
+            \item begin with the left hand side of the inequality
+            \begin{align*}
+                y(t)w^T(t+1)x(t) &= y(t)(w^T(t) + y(t)x(t))x(t)\\
+                &= y(t)w^T(t)x(t) + y(t)^2x(t)^2\\
+                y(t)w^T(t)x(t) + y(t)^2x(t)^2 & > y(t)w^T(t)x(t)
+            \end{align*}
+            Since $y(t)^2x(t)^2$ is always positive, the inequality will always hold.
+            \item For any $x(t)$ that is misclassified, $w(t+1)$ will always correctly classified $x(t)$.
+        \end{enumerate}
+    \end{enumerate}
 \end{document}
