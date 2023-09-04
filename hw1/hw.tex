@@ -39,5 +39,39 @@
         \end{enumerate}
 
         \item Exercise 1.7 in LFD
+        \begin{enumerate}[label=(\alph*)]
+            \item 3: $f8$ \\ 2: $f4, 6, 7$ \\ 1: $f2, 3, 5$ \\ 0: $f1$
+            \item 3: $f1$ \\ 2: $f2,3,5$ \\ 1: $f4,6,7$ \\ 0: $f8$
+            \item 3: $f2$ \\ 2: $f1, 4, 6$ \\ 1: $f3,5,8$ \\ 0: $f7$
+            \item 3: $f7$ \\ 2: $f3,5,8$ \\ 1: $f1,4,6$ \\ 0: $f2$
+        \end{enumerate}
+
+        \item Problem 1.1 in LFD
+        \begin{verbatim}
+            P[A: 2nd black | B: 1st black] = P[both black] / P[1st black]
+            P[both black] = 1/2 -> has to land in the black bag
+            P[1st black] = 3/4 -> excludes when white ball is chosen
+            P[A: 2nd black | B: 1st black] = (1/2) / (3/4) = 2/3
+        \end{verbatim}
+
+        \item Problem 1.2 in LFD
+        \begin{enumerate}[label=(\alph*)]
+            \item The line that separates $h(x) = +1$ and $h(x) = -1$ is $w_0 + x_1w_1 + x_2w_2 = 0$, which we could rearrange to
+            \begin{align*}
+                x_2 &= -\frac{x_1w_1}{w_2} - \frac{w_0}{w_2}\\
+                &= -\frac{w_1}{w_2}x_1 - \frac{w_0}{w_2}
+            \end{align*}
+            Here, $a = -\frac{w_1}{w_2}$ and $b = -\frac{w_0}{w_2}$
+
+            \item For $w = [1,2,3]^T$, $a = -\frac{2}{3}$ and $b = -\frac{1}{3}$. For $w = -[1,2,3]^T$ $a = -\frac{-2}{-3}$, and $b = -\frac{-1}{-3}$. Since $a$ and $b$ are the same, the lines are the same.
+            \begin{center}
+                \includegraphics[scale=0.20]{images/desmos-graph.png}
+            \end{center}
+        \end{enumerate}
+
+        \item Problem 1.4 in LFD
+        \begin{enumerate}
+            \item ss
+        \end{enumerate}
     \end{enumerate}
 \end{document}
