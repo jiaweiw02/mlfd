@@ -17,7 +17,7 @@
                 y(t)w^T(t)x(t) + y(t)^2x(t)^2 & > y(t)w^T(t)x(t)
             \end{align*}
             Since $y(t)^2x(t)^2$ is always positive, the inequality will always hold.
-            \item \textbf{CHECK THIS} For any $x(t)$ that is misclassified, $w(t+1)$ will always correctly classified $x(t)$.
+            \item For any $x(t)$, it is correctly classified if $y(t)w^T(t)x(t) > 0$. In part (b), we proved that $y(t)w^T(t+1)x(t) > y(t)w^T(t)x(t)$, so if $y(t)w^T(t)x(t) > 0$, then $y(t)w^T(t+1)x(t) > y(t)w^T(t)x(t)$, meaning the update rule is always moving towards a larger number, for any amount $x(t)$ that is misclassified, it will continue to increase until $y(t)w^T(t)x(t) > 0$. 
         \end{enumerate}
 
         \item Exercise 1.5 in LFD
@@ -71,7 +71,11 @@
 
         \item Problem 1.4 in LFD
         \begin{enumerate}
-            \item ss
+            \item target function and randomly generated points \\\includegraphics[scale=0.5]{images/a.png}
+            \item 33 updates: target(f) is close to hypothesis(g), but there can still be improvement \\\includegraphics[scale=0.5]{images/b.png}
+            \item 16 updates: plot is similar to (b), less updates but with so little data, it is an undeterminate difference \\\includegraphics[scale=0.5]{images/c.png}
+            \item 1496 updates: hypothesis(g) is a lot closer to target(f) compared to (b), a substantial increase in the number of iterations \\\includegraphics[scale=0.5]{images/d.png}
+            \item 1212 updates: hypothesis(g) is basically the same line as target(f), more updates compared to (b) \\\includegraphics[scale=0.5]{images/e.png}
         \end{enumerate}
     \end{enumerate}
 \end{document}

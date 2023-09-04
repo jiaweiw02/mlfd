@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.15)  3 SEP 2023 20:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.15)  4 SEP 2023 13:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -230,24 +230,51 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {C:/Users/ardennt/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-<images/desmos-graph.png, id=11, 1505.625pt x 1505.625pt>
+<images/desmos-graph.png, id=10, 1505.625pt x 1505.625pt>
 File: images/desmos-graph.png Graphic file (type png)
 <use images/desmos-graph.png>
 Package pdftex.def Info: images/desmos-graph.png  used on input line 68.
 (pdftex.def)             Requested size: 301.11966pt x 301.11966pt.
- [2] [3 <./images/desmos-graph.png>] (hw.aux) ) 
+ [2]
+<images/a.png, id=18, 481.8pt x 361.35pt>
+File: images/a.png Graphic file (type png)
+<use images/a.png>
+Package pdftex.def Info: images/a.png  used on input line 74.
+(pdftex.def)             Requested size: 240.8994pt x 180.67456pt.
+<images/b.png, id=19, 484.81125pt x 362.10281pt>
+File: images/b.png Graphic file (type png)
+<use images/b.png>
+Package pdftex.def Info: images/b.png  used on input line 75.
+(pdftex.def)             Requested size: 242.40503pt x 181.05095pt.
+ [3 <./images/desmos-graph.png> <./images/a.png>]
+<images/c.png, id=25, 480.29437pt x 362.10281pt>
+File: images/c.png Graphic file (type png)
+<use images/c.png>
+Package pdftex.def Info: images/c.png  used on input line 76.
+(pdftex.def)             Requested size: 240.14659pt x 181.05095pt.
+<images/d.png, id=26, 480.29437pt x 359.84438pt>
+File: images/d.png Graphic file (type png)
+<use images/d.png>
+Package pdftex.def Info: images/d.png  used on input line 77.
+(pdftex.def)             Requested size: 240.14659pt x 179.92174pt.
+<images/e.png, id=27, 481.8pt x 360.59718pt>
+File: images/e.png Graphic file (type png)
+<use images/e.png>
+Package pdftex.def Info: images/e.png  used on input line 78.
+(pdftex.def)             Requested size: 240.8994pt x 180.29814pt.
+ [4 <./images/b.png> <./images/c.png> <./images/d.png>] [5 <./images/e.png>] (hw.aux) ) 
 Here is how much of TeX's memory you used:
- 3526 strings out of 475389
- 53354 string characters out of 2789154
+ 3559 strings out of 475389
+ 53873 string characters out of 2789154
  405413 words of memory out of 3000000
- 24883 multiletter control sequences out of 15000+600000
- 471434 words of font info for 38 fonts, out of 8000000 for 9000
+ 24912 multiletter control sequences out of 15000+600000
+ 471126 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,8n,62p,489b,424s stack positions out of 10000i,1000n,20000p,200000b,80000s
-<D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on hw.pdf (3 pages, 222541 bytes).
+<D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on hw.pdf (5 pages, 314081 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
+ 71 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
