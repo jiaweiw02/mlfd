@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.15)  10 SEP 2023 13:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.15)  10 SEP 2023 19:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -238,26 +238,42 @@ File: images/1.9.jpg Graphic file (type jpg)
 <use images/1.9.jpg>
 Package pdftex.def Info: images/1.9.jpg  used on input line 26.
 (pdftex.def)             Requested size: 251.33455pt x 200.5457pt.
+<images/1.10b.png, id=2, 902.6222pt x 451.6875pt>
+File: images/1.10b.png Graphic file (type png)
+<use images/1.10b.png>
+Package pdftex.def Info: images/1.10b.png  used on input line 34.
+(pdftex.def)             Requested size: 315.9225pt x 158.09299pt.
 [1
 
-{C:/Users/ardennt/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./images/1.9.jpg>] [2]
+{C:/Users/ardennt/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./images/1.9.jpg>]
+<images/1.10c.png, id=16, 901.11656pt x 448.67625pt>
+File: images/1.10c.png Graphic file (type png)
+<use images/1.10c.png>
+Package pdftex.def Info: images/1.10c.png  used on input line 35.
+(pdftex.def)             Requested size: 315.39552pt x 157.03903pt.
+ [2 <./images/1.10b.png> <./images/1.10c.png>]
 Overfull \hbox (26.81703pt too wide) detected at line 89
 []
  []
 
-[3] (hw2.aux) ) 
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 104--106
+
+ []
+
+[4] (hw2.aux) ) 
 Here is how much of TeX's memory you used:
- 3523 strings out of 475389
- 53273 string characters out of 2789154
- 407415 words of memory out of 3000000
- 24881 multiletter control sequences out of 15000+600000
+ 3538 strings out of 475389
+ 53549 string characters out of 2789154
+ 409415 words of memory out of 3000000
+ 24893 multiletter control sequences out of 15000+600000
  471266 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,10n,62p,397b,384s stack positions out of 10000i,1000n,20000p,200000b,80000s
-<D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on hw2.pdf (3 pages, 202176 bytes).
+ 55i,10n,62p,440b,384s stack positions out of 10000i,1000n,20000p,200000b,80000s
+<D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on hw2.pdf (4 pages, 298181 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
+ 76 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -39,7 +39,6 @@ def generateData(experimentCount):
     for i in range(experimentCount):
         results[i] = flipCoin()
 
-    print(results[0])
     print("finished {} experiments in {:.2f} seconds".format(experimentCount, time.time() - startTime))
 
     datasetV1 = {0.0: 0, 0.1: 0, 0.2: 0, 0.3: 0, 0.4: 0, 0.5: 0, 0.6: 0, 0.7: 0, 0.8: 0, 0.9: 0, 1.0: 0}
@@ -60,17 +59,30 @@ def plotData(dataset):
     keys = [dataset[0].keys(), dataset[1].keys(), dataset[2].keys()]
     values = [dataset[0].values(), dataset[1].values(), dataset[2].values()]
 
+    constant = 1500 * 10 # used to scale
+    h0 = hoeffding(10, 0) * constant
+    h1 = hoeffding(10, 0.1) * constant
+    h2 = hoeffding(10, 0.2) * constant
+    h3 = hoeffding(10, 0.3) * constant
+    h4 = hoeffding(10, 0.4) * constant
+    h5 = hoeffding(10, 0.5) * constant
+
+    print(h0, h1, h2, h3, h4, h5)
+
     ax[0].bar(keys[0], values[0], width=0.05)
+    ax[0].plot([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], [h5, h4, h3, h2, h1, h0, h1, h2, h3, h4, h5])
     ax[0].set_ylabel('occurrence')
     ax[0].set_xlabel('probability of heads')
     ax[0].set_title('v1: first coin')
 
     ax[1].bar(keys[1], values[1], width=0.05)
+    ax[1].plot([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], [h5, h4, h3, h2, h1, h0, h1, h2, h3, h4, h5])
     ax[1].set_ylabel('occurrence')
     ax[1].set_xlabel('probability of heads')
     ax[1].set_title('v2: random coin')
 
     ax[2].bar(keys[2], values[2], width=0.05)
+    ax[2].plot([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], [h5, h4, h3, h2, h1, h0, h1, h2, h3, h4, h5])
     ax[2].set_ylabel('occurrence')
     ax[2].set_xlabel('probability of heads')
     ax[2].set_title('v3: least heads coin')
@@ -79,7 +91,8 @@ def plotData(dataset):
 
 
 def hoeffding(N, epsilon):
-    return 2.0 ** (-2 * epsilon * epsilon * N)
+    e = 2.718281828
+    return 2.0 * e ** (-2 * epsilon * epsilon * N)
 
 
 if "__main__" == __name__:

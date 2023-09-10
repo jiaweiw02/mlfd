@@ -31,10 +31,10 @@
         \item Exercise 1.10 in LFD
         \begin{enumerate}[label=(\alph*)]
             \item $\mu = 0.5$
-            \item \textbf{FINISH HERE}
-            \item \textbf{FINISH HERE}
+            \item \includegraphics[scale=0.35]{images/1.10b.png}
+            \item \includegraphics[scale=0.35]{images/1.10c.png}
             \item $c_1$ and $c_{rand}$ obey the Hoeffding bound, $c_{min}$ does not because $c1$ and $c_{rand}$ were selected without looking at the data, while $c_{min}$ looks at the data before selecting. $c_{min}$ represents the "unlucky" choice
-            \item \textbf{FINISH HERE}
+            \item There are 1,000 bins with evenly distributed green and red marbles, from each bin, pick 10 marbles, we can use green marble to represent flipping heads, and red flipping tails. $c_1$ will be the first bin, $c_{rand}$ will be a random bin, and $c_{min}$ will be the bin from which you picked the most red marbles from (least green marbles / heads).
         \end{enumerate}
 
         \item Exercise 1.11 in LFD
@@ -75,7 +75,7 @@
             
             \item with the update rule, we get
             \begin{align*}
-                ||w(t-1) + x(t-1)y(t-1)||^2 &\leq ||w(t-1)||^2 + + ||x(t-1)||^2
+                ||w(t-1) + x(t-1)y(t-1)||^2 &\leq ||w(t-1)||^2 + ||x(t-1)||^2
             \end{align*}
             \begin{center}
                 We can solve LHS, so
@@ -85,15 +85,24 @@
                 ||[w(t-1) + x(t-1)y(t-1)]^2|| &= ||w(t-1)^2 + 2w(t-1)x(t-1)y(t-1) + x(t-1)^2y(t-1)^2||\\
                 y(t-1)^2 = 1 \text{ since y } \in\{-1, 1\}\\
                 &=||w(t-1)^2 + 2w(t-1)x(t-1)y(t-1) + x(t-1)^2||\\
-                &=||w(t-1)^2+x(t-1)^2|| \text{ is in both sides of the inequality}
+                &||w(t-1)^2+x(t-1)^2|| \text{ is in both sides of the inequality}
             \end{align*}
 
             On the LHS, we have $2w(t-1)x(t-1)y(t-1)$, which, when $x(t-1)$ is misclassified by $w(t-1)$, becomes $<0$, so
             \begin{align*}
                 ||w(t-1)^2 + x(t-1)^2 + \text{ negative number }|| &<||w(t-1)^2+x(t-1)^2||
             \end{align*}
-
-            We know $||w(t-1)^2 + x(t-1)^2|| \leq ||w(t-1)||^2 + ||x(t-1)||^2$ by subadditivity, so $||w(t)||^2 \leq ||w(t-1)||^2 + ||x(t-1)||^2$ $\hfill \blacksquare$
+            
+            We know $||w(t-1)^2 + x(t-1)^2|| \leq ||w(t-1)||^2 + ||x(t-1)||^2$ by subadditivity, so $||w(t)||^2 \leq ||w(t-1)^2 + x(t-1)^2|| \leq ||w(t-1)||^2 + ||x(t-1)||^2$, by transitivity, we know \\ $||w(t)||^2 \leq ||w(t-1)||^2 + ||x(t-1)||^2 \hfill \blacksquare$
+        
+            \item BC $||w(0)||^2 = 0$ and $0R^2 = 0$, so $0 \leq 0$ is true\\[0.25in]
+            Induction, assume induction hypothesis $||w(k)||^2 \leq kR^2$ for $k = t$, then we must prove it for $k = k + 1$\\[0.25in]
+            so, $||w(k+1)||^2 \leq (k+1)R^2 = kR^2 + R^2$\\[0.25in]
+            from (c), we know that $||w(k+1)||^2 \leq ||w(k)||^2 + ||x(k)||^2$, from the induction hypothesis, we know $||w(k)||^2 \leq kR^2$, so we must prove $||x(t)||^2 \leq R^2$, the problem tells us that $R$ is the max, so $R \geq x(t)$, therefore $R^2 \geq ||x(t)||^2$ as well\\[0.25in]
+            so, $||w(k+1)||^2 \leq ||w(k)||^2 + ||x(k)||^2 \leq kR^2 + R^2$, by transitivity, $||w(k+1)||^2 \leq kR^2 + R^2 = (k + 1)R^2$, our induction proof is complete and we can conclude $||w(t)||^2 \leq tR^2 \hfill \blacksquare$
+            
+            \item modify the problem to $\frac{w^T(t)}{||w(t)||} \cdot w^* \geq \sqrt{t} \frac{p}{R} \frac{\sqrt{t}}{\sqrt{t}}$, so that it is $\frac{w^T(t)}{||w(t)||} \cdot w^* \geq \frac{pt}{R\sqrt{t}}$ \\[0.25in]
+            We need to prove $A \geq C$ and $B \leq D$ for $\frac{A}{B}$ and $\frac{C}{D}$, then we can say that $\frac{A}{B} \geq \frac{C}{D}$, so from (b), we know that $w^T(t)w^* \geq pt$ and from (d), we know that $||w(t)||^2 \leq tR^2$, which simplifies to $||w(t)|| \leq \sqrt{t}R$, hence we can conlude that $\frac{w^T(t)}{||w(t)||}w^* \geq \sqrt{t} \frac{P}{R}$\\[0.25in]
         \end{enumerate}
     \end{enumerate}
 \end{document}
