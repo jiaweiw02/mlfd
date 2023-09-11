@@ -39,10 +39,16 @@
 
         \item Exercise 1.11 in LFD
         \begin{enumerate}[label=(\alph*)]
-            \item \textbf{FINISH HERE}
-            \item \textbf{FINISH HERE}
-            \item \textbf{FINISH HERE}
-            \item \textbf{FINISH HERE}
+            \item No, to acheive this, we need $E_{out} \approx 0$, which means that we need $E_{in} \approx E_{out} \approx 0$. Due to the low data points, the best assumption we can make is $E_out \approx 0.5$, which tells us nothing other than random.
+            \item Yes, outside the data we don't know anything about the datapoints, so if there are more points that are $-1$ outside the data than $+1$, then our hypothesis $C$ will be better than our hypothesis $S$.
+            \item We need to look at all possible probabilities and pick those that have 13 or more +1 in the sample of 25. We know that $p=0.9$, so there's a 0.9 chance that a point is $+1$ and 0.1 chance a point is $-1$, so we can derive the following equation:
+            \begin{center}
+                $N = 25$\\
+            \end{center}
+            \begin{align*}
+                \sum_{n=13}^N {25 \choose n} 0.9^n \times 0.1^{25-n} &\approx 0.99999\\
+            \end{align*}
+            \item No, the value $p$ doesn't know anything about the data outside the 25 data points, so we can't make any assumption of $C$ and $S$ outside. In the data set, $S$ will always pick the better hypothesis than $C$, so if there are more $+1$ than $-1$, it will pick $h_1$, vise-versa, so inside the data, there is no way that $C$ will product a hypothesis better than $S$.
         \end{enumerate}
 
         \item Exercise 1.12 in LFD
@@ -103,6 +109,14 @@
             
             \item modify the problem to $\frac{w^T(t)}{||w(t)||} \cdot w^* \geq \sqrt{t} \frac{p}{R} \frac{\sqrt{t}}{\sqrt{t}}$, so that it is $\frac{w^T(t)}{||w(t)||} \cdot w^* \geq \frac{pt}{R\sqrt{t}}$ \\[0.25in]
             We need to prove $A \geq C$ and $B \leq D$ for $\frac{A}{B}$ and $\frac{C}{D}$, then we can say that $\frac{A}{B} \geq \frac{C}{D}$, so from (b), we know that $w^T(t)w^* \geq pt$ and from (d), we know that $||w(t)||^2 \leq tR^2$, which simplifies to $||w(t)|| \leq \sqrt{t}R$, hence we can conlude that $\frac{w^T(t)}{||w(t)||}w^* \geq \sqrt{t} \frac{P}{R}$\\[0.25in]
+            Rearranging variables to isolate $t$, we get $\frac{R^2(w^T(t)w^*)^2}{p^2||w(t)||^2} \geq t$, using the hint we are given, $w^T(t)w^* \leq ||w(t)|| ||w^*||$, $w^T(t) \cdot w^* = ||w(t)|| \cdot ||w^*|| \cdot cos \theta$, squaring both sides, we get $w^T(t)^2 \cdot w^{*2} = ||w(t)||^2 \cdot ||w^*||^2 \cdot cos^2\theta$, we know that $cos\theta$ is bounded by $\{-1, 1\}$, since it's squared, its value is always 1, therefore $w^T(t)^2 \cdot w^{*2} \leq ||w(t)||^2 \cdot ||w^*||^2$\\[0.25in]
+            So, we can derive $\frac{||w(t)||^2 \cdot ||w^*||^2 R^2}{p^2 ||w(t)||^2} \geq \frac{R^2(w^T(t)w^*)^2}{p^2||w(t)||^2} \geq t$, we can simplify this to $\frac{||w^*||^2R^2}{p^2} \geq \frac{R^2(w^T(t)w^*)^2}{p^2||w(t)||^2}\geq t$, by transitivity, $\frac{R^2||w^*||^2}{p^2}\geq t \hfill \blacksquare$
+        \end{enumerate}
+
+        \item Problem 1.7 in LFD
+        \begin{enumerate}[label=(\alph*)]
+            \item \textbf{FINISH HERE}
+            \item \textbf{FINISH HERE}
         \end{enumerate}
     \end{enumerate}
 \end{document}
