@@ -88,7 +88,7 @@
             \end{center}
 
             \begin{align*}
-                ||[w(t-1) + x(t-1)y(t-1)]^2|| &= ||w(t-1)^2 + 2w(t-1)x(t-1)y(t-1) + x(t-1)^2y(t-1)^2||\\
+                ||[w(t-1) + x(t-1)y(t-1)]^2|| &= ||w(t-1)^2 + 2w(t-1)x(t-1)y(t-1) +\\x(t-1)^2y(t-1)^2||\\
                 y(t-1)^2 = 1 \text{ since y } \in\{-1, 1\}\\
                 &=||w(t-1)^2 + 2w(t-1)x(t-1)y(t-1) + x(t-1)^2||\\
                 &||w(t-1)^2+x(t-1)^2|| \text{ is in both sides of the inequality}
@@ -115,7 +115,16 @@
 
         \item Problem 1.7 in LFD
         \begin{enumerate}[label=(\alph*)]
-            \item \textbf{FINISH HERE}
+            \item Probability of having one coin that lands 0 times head $\mu = 0.05$:\\
+            1 coin: ${10 \choose 0}0.05^0(1-0.05)^{10} = 0.598$\\
+            P[not having one coin that lands 0 times head] = $1 - 0.598 = 0.402$\\
+            1,000 coins: $1 - 0.402^{1000} \approx 1$\\
+            1,000,000 coins: $1 - 0.402^{1000000} \approx 1$\\[0.25in]
+            Probability of having one coin that lands 0 times head $\mu = 0.8$:\\
+            1 coin: ${10 \choose 0}0.8^0(1-0.8)^{10} = 1.024 \times 10^{-7}$\\
+            P[not having one coin that lands 0 times head] = $1 - 1.024 \times 10^{-7} = 0.9999998976$\\
+            1,000 coins: $1 - (0.9999998976)^{1000} \approx 1.024 \times 10^{-4}$\\
+            1,000,000 coins: $1 - (0.9999998976)^{1000000} \approx 0.0973$
             \item \textbf{FINISH HERE}
         \end{enumerate}
     \end{enumerate}
