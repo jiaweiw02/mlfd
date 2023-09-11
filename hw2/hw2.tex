@@ -125,7 +125,15 @@
             P[not having one coin that lands 0 times head] = $1 - 1.024 \times 10^{-7} = 0.9999998976$\\
             1,000 coins: $1 - (0.9999998976)^{1000} \approx 1.024 \times 10^{-4}$\\
             1,000,000 coins: $1 - (0.9999998976)^{1000000} \approx 0.0973$
-            \item \textbf{FINISH HERE}
+            \item flipping 2 coins 6 times, with $\mu = 0.5$, both are fair coins, $\epsilon$ represents deviation\\
+            Case 1 $\epsilon = 0$, no deviation, to comply $P[ | \frac{K}{6} - 0.5 | > \epsilon]$, $K$ can be any value except 3, so $P = 1-{6\choose 3}(0.5)^6 = 1-0.3125^2=0.9023$\\[0.25in]
+            Case 2 $\epsilon = 1/6$, valid values for $K$ are $0$, $1$, $5$, $6$, so $P = {6 \choose 2}(0.5)^6 + {6 \choose 3}(0.5)^6 + {6 \choose 4}(0.5)^6 = 0.78125 \rightarrow 1 - 0.78125^2 = 0.3897$\\[0.25in]
+            Case 3 $\epsilon = 2/6$, valid values are $\frac{0}{6}$ and $\frac{6}{6}$, so $P = {6 \choose 0}(0.5)^6 + {6 \choose 6}(0.5)^2 = (0.5)^2 + (0.5)^6 = 0.3125 \rightarrow (0.3125)^2 = 9.766 \times 10^-4$\\[0.25in]
+            Case 4 $\epsilon = 3/6$, no values of $K$ complies with $P[|\frac{K}{6} - \frac{3}{6}| > \frac{3}{6}]$, so P = 0
+            \begin{center}
+                \includegraphics[scale=0.5]{images/p1.7.png}\\
+                Blue line represents the hoeffding bound, bars represent the probability
+            \end{center}
         \end{enumerate}
     \end{enumerate}
 \end{document}
