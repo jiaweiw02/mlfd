@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{amsmath, amssymb, setspace, enumerate, enumitem}
+\usepackage{setspace}
+\usepackage{graphicx}
+\onehalfspacing
+
+\begin{document}
+    \begin{enumerate}
+        \item Exercise 1.13
+        \begin{enumerate}[label=(\alph*)]
+            \item two types of error, false reject ($f(x) = +1$, $h(x) = -1$) and false accept ($f(x) = -1$, $h(x) = 1$), when correctly defined, no errors.\\
+            False reject $f = y$, $h\neq y$ = $\lambda(\mu)$\\
+            False accept $f \neq y$, $h = y$ = $(1 - \lambda)(1 - \mu)$
+            \item 0.5, then $P(y|x) = 0.5$ regardless of $y = f(x)$ or $y \neq f(x)$, it becomes completely random.
+        \end{enumerate}
+
+        \item Exercise 2.1
+        \begin{enumerate}[label=(\alph*)]
+            \item $m_H(N) = N+1$, try $k = 2$, $m_H(2) = 3$, $2^k = 4$, $m_H(k) < 2^k$, breakpoint is at $k = 2$.
+            \item $m_H(N) = \frac{1}{2}N^2 + \frac{1}{2}N + 1$, try $k = 3$, $m_H(3) = \frac{9}{2} + \frac{3}{2} + 1 = 7$, $2^3 = 8$, $m_H(3) < 2^3$, so breakpoint is at $k = 3$.
+            \item no breakpoint for convex sets as $m_H(N) = 2^N$.
+        \end{enumerate}
+
+        \item Exercise 2.2
+        \begin{enumerate}[label=(\alph*)]
+            \item $N + 1 \leq \sum_{i = 0}^{k - 1} {N \choose i}$, let $N = 2$ using our previous breakpoint, then $3 \leq {2 \choose 0} + {2 \choose 1}$, and $3 \leq 3$, which is true. We can try again for $N=3$, where we get the result of $4 \leq 7$, which is also true.
+            \item $\frac{1}{2}N^2 + \frac{1}{2}N + 1 \leq \sum_{i = 0}^{k - 1} {N \choose i}$, let $N = 3$ and solving, from (2b), we know it's equal to $7$, solving $\sum_{i = 0}^{2} {3 \choose i} = 7$, if we solve for $N =4$, we will get the result of $11 \leq 15$, which is also true.
+            \item Theorem doesn't apply since $m_H(N) = 2^N$, and theorem requires that $m_H(N) < 2^N$
+        \end{enumerate}
+
+        \item Exercise 2.3
+        \begin{enumerate}[label=(\alph*)]
+            \item From 2.1, we know $k = 1$ is the largest value of $N$ where $m_H(N) = 2^N$, therefore $d_{vc} = 1$ and breakpoint $k = 1+ 1=2$.
+            \item From 2.1 we know $k = 2$ is the largest value of $N$ where $m_H(N) = 2^N$, therefore $d_{vc} = 2$ and breakpoint $k = 2 + 1 = 3$.
+            \item $d_{vc} = \infty$ since $m_H(N) = 2^N$ for all $N$ and there is no breakpoint.
+        \end{enumerate}
+
+        \item Exercise 2.6
+        \begin{enumerate}[label=(\alph*)]
+            \item We can use formula
+            \begin{align*}
+                E_{out} &\leq E_{in} + \sqrt{\frac{1}{2N}ln(\frac{2M}{\delta})}\\
+                E_{out} &= \sqrt{\frac{1}{2(400)}ln(\frac{2(1000)}{0.05})} = 0.115\\
+                E_{test} &= \sqrt{\frac{1}{2(200)}ln(\frac{2(1)}{0.05})} = 0.096
+            \end{align*}
+            $E_{out}$ has the higher error bar
+            
+            \item Samples used for testing cannot be used in $E_{out}$, this will improve $E_{test}$, but worsen $E_{out}$, which is meaningless in the end.
+        \end{enumerate}
+
+        \item Problem 1.11\\
+        We can multiply the result by their weights corresponding in the form of 
+        \begin{align*}
+            \frac{1}{N}\sum_{i = 1}^{N}w_n \times [h(x_n) \neq f(x_n)]
+        \end{align*}
+        Supermarket
+        \begin{align*}
+            \frac{1}{N}\sum_{i = 1}^{N}(1 \times [h(x_n) = +1, f(x_n) = -1] + 10 \times [h(x_n) = -1, f(x_n) = +1])
+        \end{align*}
+
+        CIA
+        \begin{align*}
+            \frac{1}{N}\sum_{i = 1}^{N}(1000 \times [h(x_n) = +1, f(x_n) = -1] + 1 \times [h(x_n) = -1, f(x_n) = +1])
+        \end{align*}
+
+        \item Problem 1.12
+        \begin{enumerate}[label=(\alph*)]
+            \item Simplify $(h - y_n)^2$, we get $h^2 - 2hy_n + y_n^2$, plug into the equation
+            \begin{align*}
+                &= \sum_{n = 1}^{N}h^2 - \sum_{n = 1}^{N}2hy_n + \sum_{n = 1}^{N}y_n^2\\
+                &= Nh^2 - 2h\sum_{n = 1}^{N}y_n + \sum_{n = 1}^{N}y_n^2\\
+                &= Nh^2 - h\sum_{n = 1}^{N}y_n - h\sum_{n = 1}^{N}y_n + \sum_{n = 1}^{N}y_n^2\\
+                &= Nh(h - \frac{1}{N}\sum_{n = 1}^{N}y_n) - h\sum_{n = 1}^{N}y_n + \sum_{n = 1}^{N}y_n^2\\
+                &\text{when } h = \frac{1}{N}\sum_{n = 1}^{N}y_n\\
+                E_{in} &= -h\sum_{n = 1}^{N}y_n + \sum_{n = 1}^{N}y_n^2\\
+                &= -\frac{1}{N}\sum_{n = 1}^{N}y_n \times \sum_{n = 1}^{N}y_n + \sum_{n = 1}^{N}y_n^2\\
+                &= -\frac{1}{N}(\sum_{n = 1}^{N}y_n)^2 + \sum_{n = 1}^{N}y_n^2
+            \end{align*}
+            We're left with constants in the end, showing that our estimate is in the sample mean.
+            \item \textbf{TO DO}
+            \item $h_{mean}$ becomes $\infty$ since mean is calculated by the average, when there exists an infinitely large number, the mean gets pulled up to infinity.\\[0.25in]
+            $h_{med}$ will likely not change because median is calculated by the middle "ordered" value, when there exists an infinitely large number, the median will not change.
+        \end{enumerate}
+    \end{enumerate}
+\end{document}
