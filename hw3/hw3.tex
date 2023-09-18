@@ -66,18 +66,16 @@
 
         \item Problem 1.12
         \begin{enumerate}[label=(\alph*)]
-            \item Simplify $(h - y_n)^2$, we get $h^2 - 2hy_n + y_n^2$, plug into the equation
+            \item We want to minimize $E_{in}(h)$, so we can consider taking its derivative, and when it equals $0$, it is the minimal value.
             \begin{align*}
-                &= \sum_{n = 1}^{N}h^2 - \sum_{n = 1}^{N}2hy_n + \sum_{n = 1}^{N}y_n^2\\
-                &= Nh^2 - 2h\sum_{n = 1}^{N}y_n + \sum_{n = 1}^{N}y_n^2\\
-                &= Nh^2 - h\sum_{n = 1}^{N}y_n - h\sum_{n = 1}^{N}y_n + \sum_{n = 1}^{N}y_n^2\\
-                &= Nh(h - \frac{1}{N}\sum_{n = 1}^{N}y_n) - h\sum_{n = 1}^{N}y_n + \sum_{n = 1}^{N}y_n^2\\
-                &\text{when } h = \frac{1}{N}\sum_{n = 1}^{N}y_n\\
-                E_{in} &= -h\sum_{n = 1}^{N}y_n + \sum_{n = 1}^{N}y_n^2\\
-                &= -\frac{1}{N}\sum_{n = 1}^{N}y_n \times \sum_{n = 1}^{N}y_n + \sum_{n = 1}^{N}y_n^2\\
-                &= -\frac{1}{N}(\sum_{n = 1}^{N}y_n)^2 + \sum_{n = 1}^{N}y_n^2
+                E_{in}(h) &= \sum_{n = 1}^{N}(h - y_n)^2\\
+                \frac{\partial E_{in}(h)}{\partial h} &= 2\sum_{n = 1}^{N}(h - y_n) \frac{\partial (h - y_n)}{\partial h} \text{ chain rule}\\
+                &= 2\sum_{n = 1}^{N}(h - y_n)\\
+                &= 2(\sum_{n = 1}^{N}h - \sum_{n = 1}^{N}y_n)\\
+                &= 2(Nh - \sum_{n = 1}^{N}y_n)\\
+                &= 2[N(h - \frac{1}{N}\sum_{n = 1}^{N}y_n)]
             \end{align*}
-            We're left with constants in the end, showing that our estimate is in the sample mean.
+            When $h = \frac{1}{N}\sum_{n = 1}^{N}y_n$, the equation is minimized since it equals 0. since $2[N(0)] = 0$
             \item \textbf{TO DO}
             \item $h_{mean}$ becomes $\infty$ since mean is calculated by the average, when there exists an infinitely large number, the mean gets pulled up to infinity.\\[0.25in]
             $h_{med}$ will likely not change because median is calculated by the middle "ordered" value, when there exists an infinitely large number, the median will not change.
