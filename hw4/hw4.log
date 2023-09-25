@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.15)  24 SEP 2023 21:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.15)  24 SEP 2023 21:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -223,7 +223,7 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 Here is how much of TeX's memory you used:
  3476 strings out of 475389
  52565 string characters out of 2789154
- 394415 words of memory out of 3000000
+ 394424 words of memory out of 3000000
  24853 multiletter control sequences out of 15000+600000
  469259 words of font info for 28 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
