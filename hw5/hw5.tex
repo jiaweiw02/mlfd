@@ -16,7 +16,13 @@
 
         \item Problem 2.14
         \begin{enumerate}
-            \item Given that the $d_{vc}$ is finite, we know that the hypothesis can shatter any data set of size $d_{vc}$. We can claim that $K(d_{vc}) \geq d_{vc}(H)$, since $K(d_{vc})$ assumes that every $K$ hypothesis can shatter the maximum number of points, $d_{vc}$. Then $K(d_{vc} + 1) > K(d_{vc}) \geq d_{vc}(H)$, by transitivity, $K(d_{vc} + 1) > d_{vc}(H) \hfill \blacksquare$.
+            \item Given that the $d_{vc}$ is finite, we know that the hypothesis can shatter any data set of size $d_{vc}$. We can claim that $K(d_{vc}) \geq d_{vc}(H)$, since $K(d_{vc})$ assumes that every $K$ hypothesis can shatter the maximum number of points, $d_{vc}$. Then $K(d_{vc} + 1) > K(d_{vc}) \geq d_{vc}(H)$, by transitivity, $K(d_{vc} + 1) > d_{vc}(H) \hfill \blacksquare$
+            \item Given that the hypothesis has a finite VC dimension, then we have a breakpoint such that $2^\ell > \ell^{d_{vc}} + 1$ If we have $K$ hypotheses, then $m_H(\ell) \leq K(\ell^{d_{vc}}+1)$. By inspection, $2K\ell^{d_{vc}} > K(\ell^{d_{vc}} + 1)$. So here we know that $2^\ell > 2K\ell d^{vc} > K(\ell ^{d_{vc}} + 1)$, by transitivity, $2^\ell > K(\ell ^{d_{vc}} + 1)$, which means $2^\ell > m_H(\ell)$, if this is true, then it means that there are no hypothesis can shatter $2^\ell$ points, which means that $d_{vc} \leq \ell \hfill \blacksquare$
+            \item \textbf{TO DO}
+        \end{enumerate}
+
+        \item Problem 2.15
+        \begin{enumerate}
             \item 
         \end{enumerate}
     \end{enumerate}
