@@ -41,7 +41,7 @@
             \item Generate a test dataset of size $2N$, then we run $N$ trials, picking two points at a time:
             \begin{itemize}
                 \item for $\overline{g}(x)$, generate N trials, each trial contains 2 points, compute $g^D(x) = (x_1 + x_2)x - x_2x_1$, then we can compute the average by $\overline{g}(x) = \frac{1}{N}\sum_{i = 0}^{N}g_i(x)$
-                \item we can computer out of sample error by (2.17)
+                \item we can compute out of sample error by (2.17)
                 \begin{align*}
                     E_{out}(g^D) &= E_x[(g^D(x) - f(x))^2]\\
                     &= \int_{-1}^{1}(\frac{1}{N}\sum_{i = 1}^{N}(g_i(x) - f(x))^2)dx
@@ -57,7 +57,8 @@
                 \end{align*}
             \end{itemize}
 
-            \item ok
+            \item for $N = 1000$, $\overline{g}(x) = -0.0018x + 0.0042$, $E_{out} = 0.5244$, $bias = 0.1891$, $var = 0.3486$, $bias + var = 0.5377$, we had an estimation error $E_{out} \approx bias + var$ by $2.54\%$\\
+            \includegraphics[scale=0.5]{images/2_24.png}
         \end{enumerate}
     \end{enumerate}
 \end{document}
