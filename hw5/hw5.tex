@@ -23,7 +23,41 @@
 
         \item Problem 2.15
         \begin{enumerate}
-            \item 
+            \item Consider $x_1$ is a point with coordinates $i_1, j_1$, then $h(i_1, j_1) = sign(i_1 + j_1)$. For the purpose of this example, we will consider $x_2 = (i_2, j_2)$, where $h(i_2, j_2) = sign(i_2, j_2)$. If $i_1 > i_2$ and $j_1 > j_2$, then $sign(i_1 + j_1) > sign(i_2 + j_2)$. We can consider the following graph:\\
+            \includegraphics[scale=0.25]{images/2_15_1.png}
+
+            \item If we begin with a point and increase the first component, let that be $i_1$ and decrease the second component, let that be $j_1$, then we will continuously generate the value $sign(i_n, j_n)$ for $\sum_{n = 1}^{N}$. It doesn't matter the number of points that are generated, there will always be a way to represents all the dichotomies, therefore, the maximum number of dichotomies is $m_H(N) = 2^N$, by definition, $d_{VC} = \infty$
+        \end{enumerate}
+
+        \item Problem 2.24
+        \begin{enumerate}[label=(\alph*)]
+            \item We don't know the target function, but out hypothesis set has functions in the form of $ax + b$, so $x^2_1 = ax_1 + b$ and $x^2_2 = ax_2 + b$, with algebra manipulation, we get to $a = x_1 + x_2$ and $b = -x_2x_1$. By definition, we know $\overline{g}(x) = E_D[g^{(D)}(x)] = E_D[(x_1+x_2)x - x_2x_1]$
+            \begin{align*}
+                    \overline{g}(x) &= x \cdot E[(x_1+x_2-x_2x_1)]\\
+                    &= x \cdot E[x_1] + E[x_2] - E[x_2x_1]
+            \end{align*}
+            By definition, $E[x] = \int^{+1}_{-1}xdx = 0$, given that we have two datapoints, the average $\overline{g}(x) = \frac{1}{2}(x \times 0 + 0 - 0) = 0$
+            
+            \item Generate a test dataset of size $2N$, then we run $N$ trials, picking two points at a time:
+            \begin{itemize}
+                \item for $\overline{g}(x)$, generate N trials, each trial contains 2 points, compute $g^D(x) = (x_1 + x_2)x - x_2x_1$, then we can compute the average by $\overline{g}(x) = \frac{1}{N}\sum_{i = 0}^{N}g_i(x)$
+                \item we can computer out of sample error by (2.17)
+                \begin{align*}
+                    E_{out}(g^D) &= E_x[(g^D(x) - f(x))^2]\\
+                    &= \int_{-1}^{1}(\frac{1}{N}\sum_{i = 1}^{N}(g_i(x) - f(x))^2)dx
+                \end{align*}
+                or, if we have bias and var, simply
+                \begin{align*}
+                    E_D[E_{out}(g^D)] = bias + var
+                \end{align*}
+                \item we can compute bias by $bias(x) = (\overline{g}(x) - f(x))^2$
+                \item we can compute var by $var(x) = E_D[(g^D(x) - \overline{g}(x))^2]$
+                \begin{align*}
+                    E_D[(g^D(x) - \overline{g}(x))^2] &= \int_{-1}^{1}(\frac{1}{N}\sum_{i = 1}^{N}(g_i(x) - \overline{g}(x))^2)dx
+                \end{align*}
+            \end{itemize}
+
+            \item ok
         \end{enumerate}
     \end{enumerate}
 \end{document}
