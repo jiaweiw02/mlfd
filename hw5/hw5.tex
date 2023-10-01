@@ -18,7 +18,12 @@
         \begin{enumerate}
             \item Given that the $d_{vc}$ is finite, we know that the hypothesis can shatter any data set of size $d_{vc}$. We can claim that $K(d_{vc}) \geq d_{vc}(H)$, since $K(d_{vc})$ assumes that every $K$ hypothesis can shatter the maximum number of points, $d_{vc}$. Then $K(d_{vc} + 1) > K(d_{vc}) \geq d_{vc}(H)$, by transitivity, $K(d_{vc} + 1) > d_{vc}(H) \hfill \blacksquare$
             \item Given that the hypothesis has a finite VC dimension, then we have a breakpoint such that $2^\ell > \ell^{d_{vc}} + 1$ If we have $K$ hypotheses, then $m_H(\ell) \leq K(\ell^{d_{vc}}+1)$. By inspection, $2K\ell^{d_{vc}} > K(\ell^{d_{vc}} + 1)$. So here we know that $2^\ell > 2K\ell d^{vc} > K(\ell ^{d_{vc}} + 1)$, by transitivity, $2^\ell > K(\ell ^{d_{vc}} + 1)$, which means $2^\ell > m_H(\ell)$, if this is true, then it means that there are no hypothesis can shatter $2^\ell$ points, which means that $d_{vc} \leq \ell \hfill \blacksquare$
-            \item \textbf{TO DO}
+            \item From (a), we see $K(d_{vc} + 1) > d_{vc}(H)$, so if we assume $K(d_{vc} + 1)$ is the min, we know that the inequality statement will be true. To prove the second part of the min, we let $\ell = 7 (d_{vc} + K)\log_2(d_{vc}K) = \log_2(d_{vc}K)^{7(d_{vc}+K)}$, so:
+            \begin{align*}
+                2^{\log_2(d_{vc}K)^{7(d_{vc}+K)}} &= d_{vc}K^{7(d_{vc} + K)}\\
+                d_{vc}K^{7(d_{vc} + K)} &> 2K(7(d_{vc}+K)\log_2(d_{vc}K))^{d_{vc}}
+            \end{align*}
+            We know that we have a finite VC dimension, but our number of hypothesis $k$ has no bound and can grow infinitely, therefore we prove the inequality is true.
         \end{enumerate}
 
         \item Problem 2.15
@@ -41,24 +46,34 @@
             \item Generate a test dataset of size $2N$, then we run $N$ trials, picking two points at a time:
             \begin{itemize}
                 \item for $\overline{g}(x)$, generate N trials, each trial contains 2 points, compute $g^D(x) = (x_1 + x_2)x - x_2x_1$, then we can compute the average by $\overline{g}(x) = \frac{1}{N}\sum_{i = 0}^{N}g_i(x)$
-                \item we can compute out of sample error by (2.17)
+                \item we can compute out of sample error by (2.17), we generate a new dataset $D$ of length $N$, we cannot use the same data we used to find $\overline{g}(x)$
                 \begin{align*}
                     E_{out}(g^D) &= E_x[(g^D(x) - f(x))^2]\\
-                    &= \int_{-1}^{1}(\frac{1}{N}\sum_{i = 1}^{N}(g_i(x) - f(x))^2)dx
+                    &= \frac{1}{N}\sum_{i = 1}^{N}(g_i(x_i) - f(x_i))^2
+                \end{align*}
+                \begin{center}
+                    Consider only the interval from 0 to -1
+                \end{center}
+                \begin{align*}
+                    E_{out}(g^D) &= \frac{1}{2}\int_{-1}^{1}(\frac{1}{N}\sum_{i=1}^{N}(g_i(x_i) - f(x_i))^2)dx
                 \end{align*}
                 or, if we have bias and var, simply
                 \begin{align*}
                     E_D[E_{out}(g^D)] = bias + var
                 \end{align*}
-                \item we can compute bias by $bias(x) = (\overline{g}(x) - f(x))^2$
+                \item we can compute bias by $bias(x) = \frac{1}{2}\int_{-1}^{1}(\overline{g}(x_i) - f(x_i))^2dx$
                 \item we can compute var by $var(x) = E_D[(g^D(x) - \overline{g}(x))^2]$
                 \begin{align*}
-                    E_D[(g^D(x) - \overline{g}(x))^2] &= \int_{-1}^{1}(\frac{1}{N}\sum_{i = 1}^{N}(g_i(x) - \overline{g}(x))^2)dx
+                    E_D[(g^D(x) - \overline{g}(x))^2] &= \frac{1}{2}\int_{-1}^{1}(\frac{1}{N}\sum_{i = 1}^{N}(g_i(x_i) - \overline{g}(x_i))^2)dx
                 \end{align*}
             \end{itemize}
 
             \item for $N = 1000$, $\overline{g}(x) = -0.0018x + 0.0042$, $E_{out} = 0.5244$, $bias = 0.1891$, $var = 0.3486$, $bias + var = 0.5377$, we had an estimation error $E_{out} \approx bias + var$ by $2.54\%$\\
             \includegraphics[scale=0.5]{images/2_24.png}
+
+            \item bias: $\frac{1}{2}\int_{-1}^{1}(\overline{g}(x) - f(x))^2dx$, $\overline{g}(x) = 0$, so $\frac{1}{2}\int_{-1}^{1}x^4dx = \frac{1}{2} \times \frac{2}{5} = \frac{1}{5}$\\
+            var: $E[(g^D(x) - \overline{g}(x))^2]$, since $\overline{g}(x) = 0$, then $var = E[g^D(x)^2]$...???\\
+            assume var calculated, then $E_{out} = \frac{1}{5} + var$
         \end{enumerate}
     \end{enumerate}
 \end{document}
