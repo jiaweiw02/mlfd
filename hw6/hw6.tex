@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{amsmath, amssymb, setspace, enumerate, enumitem}
+\usepackage{setspace}
+\usepackage{graphicx}
+\onehalfspacing
+
+\begin{document}
+    \begin{enumerate}
+        \item Exercise 3.4
+        \begin{enumerate}[label=(\alph*)]
+            \item we know $y = w^{*T}x + \epsilon$ and $H = X(X^TX)^-1X^T$ from (3.6), and we know $\hat{y} = Hy$ by definition, we want to prove $\hat{y} = Xw^* + H\epsilon$
+            \begin{align*}
+                \hat{y} &= H(w^*X + \epsilon)\\
+                &= X(X^TX)^{-1}X^T(w^*X+\epsilon)\\
+                &= X(X^TX)^{-1}X^Tw^*X + X(X^TX)^{-1}X^T\epsilon\\
+                &= w^*X + H\epsilon
+            \end{align*}
+
+            \item for $\hat{y} - y$, we have
+            \begin{align*}
+                \hat{y} - y &= w^*X + H\epsilon - (w^* + \epsilon)\\
+                &= H\epsilon - \epsilon\\
+                &= \epsilon(H - I)
+            \end{align*}
+            where $I$ denotes the identity matrix
+
+            \item let $E_{in}(w) = \frac{1}{N} ||\hat{y} - y||^2$
+            \begin{align*}
+                E_{in}(w) &= \frac{1}{N}||\epsilon(H-I)||^2\\
+                &= \frac{1}{N}\epsilon^T(H-I)^T\epsilon(H-I)\\
+            \end{align*}
+            We know $H - I$ is symmetric, so $(H-I)^T = (H-I)$
+            \begin{align*}
+                E_{in}(w) &= \frac{1}{N}\epsilon^T\epsilon(H-I)^2\\
+                &= \frac{1}{N}\epsilon^T\epsilon(I - H)^2
+            \end{align*}
+
+            \item We know
+            \begin{align*}
+                E_D[E_{in}(w_{lin})] &= E_D[\frac{1}{N}(\epsilon^T\epsilon(I - H))]\\
+                &= \frac{1}{N} (E_D[\epsilon^T\epsilon] - E_D[\epsilon^T\epsilon H])\\
+            \end{align*}
+            Given that $\epsilon$ is a noise term with zero mean and $\sigma^2$ variance. The variance of each noise component $\epsilon$ is $\sigma^2$, so 
+            \begin{align*}
+                E_D[E_{in}(w_{lin})] &= \frac{1}{N}(N\sigma^2 - E_D[\epsilon^T\epsilon H])\\
+                &= \sigma^2 - \frac{1}{N}E_D[\epsilon^T\epsilon H]
+            \end{align*}
+
+            finish
+        \end{enumerate}
+    \end{enumerate}
+\end{document}
