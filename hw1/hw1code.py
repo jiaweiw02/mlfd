@@ -3,33 +3,16 @@ import numpy as np
 
 
 def perceptron(points):
-    # create a random g in the hypothesis set
-    # rand4 = [np.random.uniform(0, 1) for i in range(4)]
-    # x1 = min(rand4[0], rand4[1])
-    # x2 = max(rand4[0], rand4[1])
-    # y1 = rand4[2]
-    # y2 = rand4[3]
-    #
-    # g = [[x1, x2], [y1, y2]]
-    #
-    # slope = (y2 - y1) / (x2 - x1)
-    # plt.plot(g[0], g[1])
-
     w = [0, 0, 0]
 
     iter = 0
     while (True):
         hasMisclassified = False
-        # find a point that is misclassified
         for p in points:
             x = [1, p[0], p[1]]
             output = p[2]
 
             dot_product = np.dot(w, x)
-            # print(dot_product)
-            #
-            # print(np.sign(dot_product) == output)
-
             if np.sign(dot_product) != output:
                 for i in range(3):
                     w[i] += output * x[i]
