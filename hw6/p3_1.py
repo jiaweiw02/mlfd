@@ -62,6 +62,7 @@ def perceptron(points):
 
     iter = 0
     while True:
+        iter += 1
         hasMisclassified = False
         for p in points:
             x = [1, p[0], p[1]]
@@ -73,7 +74,6 @@ def perceptron(points):
                     w[i] += output * x[i]
                 hasMisclassified = True
                 break
-        iter += 1
         if not hasMisclassified:
             plotWithWeight(w, -15, 30, "PLA")
             return iter
@@ -116,6 +116,11 @@ def main():
     perceptron(plus1 + minus1)
     linearRegression(plus1 + minus1)
     plotPoints(plus1, minus1)
+
+def main3_2(sep):
+    plus1, minus1 = createCircle(5, 10, sep, 2000)
+
+    return perceptron(plus1 + minus1)
 
 
 main()

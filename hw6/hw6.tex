@@ -92,5 +92,16 @@
             \item \includegraphics[scale=0.5]{images/p3_1.png}
             \item Both PLA and linear regression found ways to separate this data, however, one could say that the linear regression algorithm found a better way to separate the data as the PLA appears to be closer to the top part of the semicircle, barely missing on misclassifying one of the $+1$ points. With this, one can predict that linear regression will have a lower $E_{out}$ than the PLA, however, this isn't guaranteed.
         \end{enumerate}
+
+        \item Problem 3.2\\
+        \includegraphics[scale=0.5]{images/p3_2.png}\\
+        When $sep$ is small, we require a large number of iterations to find the line of best fit. When the separation between the data sets is larger, iterations decrease significantly. Intuitively, we can give this reasoning due to the number of possible hypothesis when you have a larger gap between the two datasets. When $sep$ is high, we can imagine a large gap between the two datasets, and any line inside of that gap can fit. However, when $sep$ is small, we need the perfect line to fit in between the dataset, which limits how many lines are possible, thus causing PLA to run more iterations.\\[0.25in]
+        Mathematically, we proved that
+        \begin{align*}
+            t \leq \frac{R^2 ||w^*||^2}{p^2}
+        \end{align*}
+        Our sep values increase with our $p$, so as $sep$ grows larger, $p$ grows larger, creating a smaller bound for our iterations $t$.
+
+        \item Problem 3.8
     \end{enumerate}
 \end{document}
