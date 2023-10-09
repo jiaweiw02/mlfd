@@ -2,8 +2,8 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-def readTrain():
-    train = open("ZipDigits.train", 'r')
+def generateData(filename):
+    train = open(filename, 'r')
     allDigits = []
     for line in train:
         newData = [float(0) for i in range(257)]
@@ -34,7 +34,57 @@ def create_grayscale_image(data):
     plt.show()
 
 
-five_val = readTrain()[14][1:]
-one_val = readTrain()[1][1:]
-create_grayscale_image(five_val)
-create_grayscale_image(one_val)
+def computeIntensity(data):
+    intensities = []
+    for d in data:
+        dig = d[0]
+        formatData = []
+        for i in range(1, len(d), 16):
+            formatData.append(d[i:i + 16])
+
+        horIntensity = 0
+        verIntensity = 0
+
+        for i in range(8):
+            for j in range(16):
+                horIntensity += abs(formatData[i][j] - formatData[15 - i][j])
+
+        for i in range(16):
+            for j in range(8):
+                verIntensity += abs(formatData[i][j] - formatData[i][15 - j])
+
+        intensities.append((dig, horIntensity, verIntensity))
+    return intensities
+
+
+def plot(intensities):
+    oneX, oneY, fiveX, fiveY = [], [], [], []
+    for int in intensities:
+        if int[0] == 1:
+            oneX.append(int[1])
+            oneY.append(int[2])
+        else:
+            fiveX.append(int[1])
+            fiveY.append(int[2])
+
+    plt.plot(oneX, oneY, "x", label="1", color="red")
+    plt.plot(fiveX, fiveY, "o", label="5", color="blue")
+    plt.legend()
+    plt.xlabel("horizontal intensity")
+    plt.ylabel("vertical intensity")
+    plt.show()
+
+
+trainFile = "ZipDigits.train"
+trainData = generateData(trainFile)
+trainIntensity = computeIntensity(trainData)
+plot(trainIntensity)
+
+testFile = "ZipDigits.test"
+testData = generateData(testFile)
+testIntensity = computeIntensity(testData)
+plot(testIntensity)
+
+
+
+

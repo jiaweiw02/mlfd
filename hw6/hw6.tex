@@ -105,7 +105,18 @@
         \item Problem 3.8
         \begin{enumerate}[label=(\alph*)]
             \item \includegraphics[scale=0.5]{images/3_8_1.png}\\ \includegraphics[scale=0.5]{images/3_8_5.png}
-            \item 
+            \item I will be using symmetry and average intensity for my features, for symmetry, I will measure horizontal and vertical symmetry, and then get their difference, since $1$ has high symmetry on both vertical and horizontal, it should obtain a rather small difference compared to $5$\\[0.25in]
+            Mathematically, assume pixels are from 0-15, rows 0-15, then horizontal symmetry can be measured by comparing the first pixel i = 0, j = 0 to pixel i = 15, j = 0, and so on until the row is completed, then the top half will drop a row while the bottom half will rise a row. This will terminate until they reach the middle. The same will happen for vertical.
+            \begin{align}
+                \sum_{i = 0}^{7} \sum_{j = 0}^{15} &= | p[i][j] - p[15 - i][j] |\\
+                \sum_{i = 0}^{15} \sum_{j = 0}^{7} &= | p[i][j] - p[i][15 - j] |
+            \end{align}
+
+            $(1)$ horizontal
+            $(2)$ vertical
+
+            \item training plot: \\ \includegraphics[scale=0.5]{images/handwriting_train.png}\\
+            testing plot: \\ \includegraphics[scale=0.5]{images/handwriting_test.png}
         \end{enumerate}
     \end{enumerate}
 \end{document}
