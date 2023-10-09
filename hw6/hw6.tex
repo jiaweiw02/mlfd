@@ -9,7 +9,7 @@
     \begin{enumerate}
         \item Exercise 3.4
         \begin{enumerate}[label=(\alph*)]
-            \item we know $y = w^{*T}x + \epsilon$ and $H = X(X^TX)^-1X^T$ from (3.6), and we know $\hat{y} = Hy$ by definition, we want to prove $\hat{y} = Xw^* + H\epsilon$
+            \item we know $y = w^{*T}X + \epsilon$ and $H = X(X^TX)^-1X^T$ from (3.6), and we know $\hat{y} = Hy$ by definition, we want to prove $\hat{y} = Xw^* + H\epsilon$
             \begin{align*}
                 \hat{y} &= H(w^*X + \epsilon)\\
                 &= X(X^TX)^{-1}X^T(w^*X+\epsilon)\\
@@ -19,12 +19,12 @@
 
             \item for $\hat{y} - y$, we have
             \begin{align*}
-                \hat{y} - y &= w^*X + H\epsilon - (w^* + \epsilon)\\
+                \hat{y} - y &= w^*X + H\epsilon - (w^*X + \epsilon)\\
                 &= H\epsilon - \epsilon\\
                 &= \epsilon(H - I)
             \end{align*}
             where $I$ denotes the identity matrix
-
+            
             \item let $E_{in}(w) = \frac{1}{N} ||\hat{y} - y||^2$
             \begin{align*}
                 E_{in}(w) &= \frac{1}{N}||\epsilon(H-I)||^2\\
@@ -80,10 +80,7 @@
 
             Then, we have proved that $E_D[E_{in}(w_{lin})] = \sigma^2 ( 1 - \frac{d + 1}{N}) \hfill\blacksquare$
             
-            \item to do
-            \begin{align*}
-                E_{D, \epsilon^\prime}[E_{test}(w_{lin})] = E_{D, \epsilon^\prime}[\frac{1}{N}||Xw - y^\prime||^2]
-            \end{align*}
+            \item to do...
             
         \end{enumerate}
 
@@ -102,7 +99,27 @@
         \end{align*}
         Our sep values increase with our $p$, so as $sep$ grows larger, $p$ grows larger, creating a smaller bound for our iterations $t$.
 
-        \item Problem 3.8
+        \item Problem 3.8\\
+        Out of sample error $E_{out}(h) = E[(h(x) - y)^2]$, the hypothesis that minimizes $E_{out}$ is given by $h^*(x) = E[y|x]$. We can write $y = h^*(x) + \epsilon (x)$, where $\epsilon (x)$ is a noise variable. To minimize $E_{out}$, we can take its derivative and set it to 0
+        \begin{align*}
+            E[(h(x) - y)^2] &= E[h(x)^2 - 2h(x)y + y^2]\\
+            \frac{d}{dh(x)}E[(h(x) - y)^2] &= 2E[(h(x) - y)]\\
+            &= E[h(x) - y]\\
+            &= h(x) - E[y|x]\\
+            h(x) - E[y|x] &= 0\\
+            h(x) &= E[y|x]
+        \end{align*}
+
+        To show that $\epsilon (x)$ has expected value zero, we do the following:
+        \begin{align*}
+            y &= h^*(x) + \epsilon (x)\\
+            E[y] &= E[h^*(x) + \epsilon (x)]\\
+            &= E[h^*(x)] + E[\epsilon (x)]\\
+            E[\epsilon(x)] &= E[y] - E[h^*(x)]\\
+        \end{align*}
+        We know that $E[y]$ is the target function and $E[h^*(x)]$ is the closest approximate to $E[y]$ since it minimizes $E_{out}$, therefore, we can assume $E[\epsilon (x)] = 0$ since the difference between $E[y]$ and $E[h^*(x)]$ should be minimal.
+
+        \item Handwriting
         \begin{enumerate}[label=(\alph*)]
             \item \includegraphics[scale=0.5]{images/3_8_1.png}\\ \includegraphics[scale=0.5]{images/3_8_5.png}
             \item I will be using symmetry and average intensity for my features, for symmetry, I will measure horizontal and vertical symmetry, and then get their difference, since $1$ has high symmetry on both vertical and horizontal, it should obtain a rather small difference compared to $5$\\[0.25in]
