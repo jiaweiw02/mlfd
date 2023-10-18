@@ -54,7 +54,7 @@ def computeIntensity(data):
             for j in range(8):
                 verIntensity += abs(formatData[i][j] - formatData[i][15 - j])
 
-        intensities.append((horIntensity, verIntensity, dig))
+        intensities.append((horIntensity, verIntensity, 1 if dig == 1 else -1))
     return intensities
 
 
@@ -76,67 +76,82 @@ def plot(intensities):
     plt.show()
 
 
-def calcEIN():
-    pass
+# takes in weight vector w1, w2, w3
+# points in [x1,x2,y] format
+def error(w, points):
+    # calculate E_IN
+    E = 0
+    for p in points:
+        x = [1, p[0], p[1]]
+        output = p[2]
+        dotProduct = np.dot(w, x)
+        if np.sign(dotProduct) < 0:
+            E += 1
+    return E
 
 
-#notes: just write different functions to calculate everything
-# i don't even know what is wrong
 def pocket(points, w, iterations):
-    pocketW = w
+    best_w = np.copy(w)
+    best_accuracy = error(best_w, points)
+    print(best_accuracy)
+
     pointIndex = 0
     for i in range(iterations):
-        currentW = np.copy(pocketW)
         # run PLA one update
         hasMisclassified = False
         for j in range(pointIndex, len(points)):
             p = points[j]
             x = [1, p[0], p[1]]
-            output = -1 if p[2] == 1 else 1
-            dot_product = np.dot(pocketW, x)
+            output = p[2]
+            dot_product = np.dot(w, x)
             if np.sign(dot_product) != output:
-                pointIndex = j + 1
                 hasMisclassified = True
+                new_w = np.copy(best_w)
                 for k in range(3):
-                    currentW[k] += output * x[k]
+                    new_w += w[k] + output * x[k]
+                accuracy = error(new_w, points)
+                if accuracy < best_accuracy:
+                    best_w = new_w
+                pointIndex = j + 1
                 break
-
         if not hasMisclassified:
-            pocketW = currentW
             break
 
-        # calculate E_IN
-        E_INCurrent = 0
-        E_INPocket = 0
-        for p in points:
-            x = [1, p[0], p[1]]
-            output = -1 if p[2] == 1 else 1
-            currentDot = np.dot(currentW, x)
-            pocketDot = np.dot(pocketW, x)
-
-            if np.sign(currentDot) != output:
-                E_INCurrent += 1
-            elif np.sign(pocketDot) != output:
-                E_INPocket += 1
-
-        print(E_INPocket, E_INCurrent)
-
-        if E_INCurrent < E_INPocket:
-            print("Pocket had {}, current had {}, updated {} to {}".format(E_INPocket, E_INCurrent, pocketW, currentW))
-            pocketW = currentW
-
-    return pocketW
+    return best_w
 
 
 # Assignment 7
 # takes in points [x1,x2,y] as a list, points are in tuple
 def linearReg_pocket(intensity):
     w = linearRegression(intensity)
-    pocketW = pocket(intensity, w, 100)
-    plotWithWeight(pocketW, 25, 75, "hi")
+    pocketW = pocket(intensity, w, 1)
+    plotWithWeight(pocketW, 25, 75, "pocket")
     plot(intensity)
 
-# 1 is -1, 5 is 1
+
+def logisticReg(intensity, iterations):
+    learningRate = 0.1
+    X = np.array([[1, x[0], x[1]] for x in intensity])
+    y = np.array([x[2] for x in intensity])
+    w = np.array([np.random.uniform(-1, 1) for _ in range(3)])
+
+    for i in range(iterations):
+        h = np.dot(X, w)
+        Error = h - y
+
+        gradient = -1 * (np.dot(np.transpose(X), Error) / len(intensity))
+        v = -gradient
+        w += learningRate * v
+    plotWithWeight(w, 20, 40, "logistic reg")
+    return w
+    # sum = 0
+    # for j in range(len(intensity)):
+    #     numerator = np.dot(X[i], y[i])
+    #     WT = np.transpose(w)
+    #     denominator = 1 + np.e ** (np.dot())
+
+
+# 1 is 1, -1 is 5
 
 if "__main__" == __name__:
     trainFile = "ZipDigits.train"
@@ -144,8 +159,9 @@ if "__main__" == __name__:
     trainIntensity = computeIntensity(trainData)
     linearReg_pocket(trainIntensity)
 
+    print(logisticReg(trainIntensity, 100))
+    plot(trainIntensity)
     plt.show()
-    # plot(trainIntensity)
 
     # testFile = "ZipDigits.test"
     # testData = generateData(testFile)
