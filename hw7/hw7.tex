@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{amsmath, amssymb, setspace, enumerate, enumitem}
+\usepackage{setspace}
+\usepackage{graphicx}
+\onehalfspacing
+
+\begin{document}
+
+    \begin{enumerate}
+        \item TODO
+        \item \begin{enumerate}[label=(\alph*)]
+            \item When the learning rate was set to 0.01, there was a stable decline in the function, when the learning rate was raised to 0.1, it became scattered. This is due to the function jumping around, trying to find the local minimum, but the learning rate is too high, so it's jumping more than it should.
+            \item Learning rate set to 0.01:\\
+            \begin{tabular}{ c c c c c }
+                x start & y start & x min & y min & min value\\
+                0.1 & 0.1 & 0.24380496936478335 & -0.23792582148617658 & -1.8200785415471565\\
+                1 & 1 & 1.2180703009052047 & 0.7128119503387537 & 0.5932693743258357\\
+                -0.5 & -0.5 & -0.731377460409601 & -0.23785536290147238 & -1.332481062330978\\
+                -1 & -1 & -1.2180703009052047 & -0.7128119503387537 & 0.5932693743258357\\
+            \end{tabular}
+
+            Learning rate set to 0.1:\\
+            \begin{tabular}{c c c c c}
+                x start & y start & x min & y min & min value\\
+                0.1 & 0.1 & 0.23624085417279922 & 0.2292203653889578 & -1.6452216178404533\\
+                1 & 1 & 0.5638448167590557 & -0.03503546573154889 & -1.6997441668889812\\
+                -0.5 & -0.5 & -0.01859951030800544 & 0.4009863778325866 & -1.3964666430345036\\
+                -1 & -1 & -0.5638448167590557 & 0.03503546573154889 & -1.6997441668889812\\
+            \end{tabular}
+        \end{enumerate}
+
+        \item \begin{enumerate}[label=(\alph*)]
+            \item uhss
+        \end{enumerate}
+    \end{enumerate}
+
+\end{document}
