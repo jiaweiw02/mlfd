@@ -15,6 +15,7 @@ def plotWithWeight(w, x1, x2, l):
     start = [x1, x2]
     end = [a * x1 + b, a * x2 + b]
     plt.plot(start, end, label=l)
+    return start, end
 
 
 def validPoint(center, p, rad, sep):
@@ -79,9 +80,11 @@ def perceptron(points):
             return iter
 
 
+# takes in points x[0] = x1, x[1] = x2, x[2] = output
+# points is a list
 def linearRegression(points):
     X = np.array([[1, x[0], x[1]] for x in points])
-    y = np.array([x[2] for x in points])
+    y = np.array([-1 if x[2] == 1 else 1 for x in points])
 
     XT = np.transpose(X)
     XTX = np.dot(XT, X)
@@ -89,7 +92,8 @@ def linearRegression(points):
     psuedo = np.dot(XTX_inverse, XT)
 
     w = np.dot(psuedo, y)
-    plotWithWeight(w, -15, 30, "LINEAR R")
+    return w
+    # plotWithWeight(w, -15, 30, "LINEAR R")
 
 
 def plotPoints(plus1, minus1):
@@ -117,10 +121,11 @@ def main():
     linearRegression(plus1 + minus1)
     plotPoints(plus1, minus1)
 
+
 def main3_2(sep):
     plus1, minus1 = createCircle(5, 10, sep, 2000)
-
     return perceptron(plus1 + minus1)
 
 
-main()
+if __name__ == "__main__":
+    main()
