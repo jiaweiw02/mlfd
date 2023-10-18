@@ -31,7 +31,31 @@
         \end{enumerate}
 
         \item \begin{enumerate}[label=(\alph*)]
-            \item uhss
+            \item cost(accept) (+1) = $0 \times correct + c_a \times incorrect = c_a \times incorrect = (1 - g(x))c_a$\\
+            cost(reject) (-1) = $c_r \times correct + 0 \times incorrect = c_r \times correct = g(x)c_r$
+            \item We accept when $g(x) \geq k$, so 
+            \begin{align*}
+                (1 - g(x))c_a &\geq g(x)c_r \\
+                c_a - c_ag(x) &\geq g(x)c_r \\
+                -c_ag(x) - g(x)c_r &\geq -c_a\\
+                g(x)(-c_a - c_r) &\geq -c_a \\
+                g(x) &\geq \frac{-c_a}{-c_a - c_r}\\
+                g(x) &\geq \frac{c_a}{c_a + c_r}
+            \end{align*}
+            If we let
+            \begin{align*}
+                k = \frac{c_a}{c_a + c_r}
+            \end{align*}
+            Then we have fulfilled our accepting condition $g(x) \geq k$
+            \item Supermarket: $c_a = 1$ and $c_r = 10$
+            \begin{align*}
+                k = \frac{1}{1 + 10} = 0.09090909
+            \end{align*}
+            CIA: $c_a = 1000$ and $c_r = 1$
+            \begin{align*}
+                k = \frac{1000}{1000 + 1} = 0.999000999
+            \end{align*}
+            Intuitively, the CIA would have a higher threshhold because the cost of accepting a person's fingerprints when it should've been rejecting is high. Whereas the supermarket, if you accept false accept, it is not a big deal and thus have low cost.
         \end{enumerate}
     \end{enumerate}
 
