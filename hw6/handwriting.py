@@ -84,38 +84,43 @@ def error(w, points):
     for p in points:
         x = [1, p[0], p[1]]
         output = p[2]
-        dotProduct = np.dot(w, x)
-        if np.sign(dotProduct) < 0:
+        if np.sign(np.dot(w, x)) != output:
             E += 1
-    return E
+        # dotProduct = np.dot(w, x)
+        # if np.sign(dotProduct) < 0:
+        #     E += 1
+    return E / len(points)
+    # return E
 
 
 def pocket(points, w, iterations):
     best_w = np.copy(w)
     best_accuracy = error(best_w, points)
-    print(best_accuracy)
 
-    pointIndex = 0
     for i in range(iterations):
         # run PLA one update
-        hasMisclassified = False
-        for j in range(pointIndex, len(points)):
-            p = points[j]
+        new_w = np.copy(best_w)
+
+        index = np.random.randint(0, len(points))
+        p = points[index]
+        x = [1, p[0], p[1]]
+        output = p[2]
+        while np.sign(np.dot(new_w, x)) == output:
+            index = np.random.randint(0, len(points))
+            p = points[index]
             x = [1, p[0], p[1]]
             output = p[2]
-            dot_product = np.dot(w, x)
-            if np.sign(dot_product) != output:
-                hasMisclassified = True
-                new_w = np.copy(best_w)
-                for k in range(3):
-                    new_w += w[k] + output * x[k]
-                accuracy = error(new_w, points)
-                if accuracy < best_accuracy:
-                    best_w = new_w
-                pointIndex = j + 1
-                break
-        if not hasMisclassified:
-            break
+
+        # found the misclassified point, update it
+        for k in range(3):
+            new_w[k] += output * x[k]
+
+        accuracy = error(new_w, points)
+
+        if accuracy > best_accuracy:
+            print("updated", best_w, new_w, accuracy, best_accuracy)
+            best_w = new_w
+            best_accuracy = accuracy
 
     return best_w
 
@@ -124,9 +129,14 @@ def pocket(points, w, iterations):
 # takes in points [x1,x2,y] as a list, points are in tuple
 def linearReg_pocket(intensity):
     w = linearRegression(intensity)
-    pocketW = pocket(intensity, w, 1)
+    pocket(intensity, w, 100)
+    pocketW = pocket(intensity, w, 100)
     plotWithWeight(pocketW, 25, 75, "pocket")
     plot(intensity)
+
+
+def sigmoid(x):
+    return 1 / (1 + np.e ** (-x))
 
 
 def logisticReg(intensity, iterations):
@@ -136,14 +146,15 @@ def logisticReg(intensity, iterations):
     w = np.array([np.random.uniform(-1, 1) for _ in range(3)])
 
     for i in range(iterations):
-        h = np.dot(X, w)
-        Error = h - y
-
-        gradient = -1 * (np.dot(np.transpose(X), Error) / len(intensity))
-        v = -gradient
-        w += learningRate * v
-    plotWithWeight(w, 20, 40, "logistic reg")
+        # h = np.dot(X, w)
+        # Error = sigmoid(h) - y
+        # gradient = np.dot(np.transpose(X), Error) / len(intensity)
+        # gradient = -1 * (np.dot(np.transpose(X), Error) / len(intensity))
+        # v = -gradient
+        # w -= learningRate * gradient
+    plotWithWeight(w, 25, 75, "logistic reg")
     return w
+
     # sum = 0
     # for j in range(len(intensity)):
     #     numerator = np.dot(X[i], y[i])
@@ -159,7 +170,7 @@ if "__main__" == __name__:
     trainIntensity = computeIntensity(trainData)
     linearReg_pocket(trainIntensity)
 
-    print(logisticReg(trainIntensity, 100))
+    print(logisticReg(trainIntensity, 1))
     plot(trainIntensity)
     plt.show()
 

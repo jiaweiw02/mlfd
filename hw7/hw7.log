@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.31)  18 OCT 2023 18:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.8.31)  21 OCT 2023 00:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -149,7 +149,8 @@ File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count276
 \l__pdf_internal_box=\box54
-) (./hw7.aux)
+)
+No file hw7.aux.
 \openout1 = `hw7.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -166,7 +167,6 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
 LaTeX Font Info:    ... okay on input line 8.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -241,8 +241,8 @@ Overfull \hbox (15.21437pt too wide) in paragraph at lines 23--31
 
 {/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./hw7.aux) ) 
 Here is how much of TeX's memory you used:
- 3505 strings out of 476025
- 53885 string characters out of 5790017
+ 3503 strings out of 476025
+ 53869 string characters out of 5790017
  1864388 words of memory out of 5000000
  23947 multiletter control sequences out of 15000+600000
  513986 words of font info for 40 fonts, out of 8000000 for 9000
