@@ -129,8 +129,7 @@ def pocket(points, w, iterations):
 # takes in points [x1,x2,y] as a list, points are in tuple
 def linearReg_pocket(intensity):
     w = linearRegression(intensity)
-    pocket(intensity, w, 100)
-    pocketW = pocket(intensity, w, 100)
+    pocketW = pocket(intensity, w, 10000)
     plotWithWeight(pocketW, 25, 75, "pocket")
     plot(intensity)
 
@@ -146,12 +145,12 @@ def logisticReg(intensity, iterations):
     w = np.array([np.random.uniform(-1, 1) for _ in range(3)])
 
     for i in range(iterations):
-        # h = np.dot(X, w)
-        # Error = sigmoid(h) - y
-        # gradient = np.dot(np.transpose(X), Error) / len(intensity)
-        # gradient = -1 * (np.dot(np.transpose(X), Error) / len(intensity))
-        # v = -gradient
-        # w -= learningRate * gradient
+        h = np.dot(X, w)
+        Error = sigmoid(h) - y
+        gradient = np.dot(np.transpose(X), Error) / len(intensity)
+        gradient = -1 * (np.dot(np.transpose(X), Error) / len(intensity))
+        v = -gradient
+        w -= learningRate * gradient
     plotWithWeight(w, 25, 75, "logistic reg")
     return w
 
@@ -170,7 +169,7 @@ if "__main__" == __name__:
     trainIntensity = computeIntensity(trainData)
     linearReg_pocket(trainIntensity)
 
-    print(logisticReg(trainIntensity, 1))
+    print(logisticReg(trainIntensity, 100))
     plot(trainIntensity)
     plt.show()
 
