@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.15)  21 OCT 2023 00:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.15)  23 OCT 2023 01:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -220,38 +220,80 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (D:\HDD Apps\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
- (D:\HDD Apps\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
- (D:\HDD Apps\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Overfull \hbox (11.88104pt too wide) in paragraph at lines 14--22
-[] 
- []
+<images/linearpocket.png, id=1, 642.4pt x 481.8pt>
+File: images/linearpocket.png Graphic file (type png)
+<use images/linearpocket.png>
+Package pdftex.def Info: images/linearpocket.png  used on input line 13.
+(pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
+<images/linearpockettest.png, id=2, 642.4pt x 481.8pt>
+File: images/linearpockettest.png Graphic file (type png)
+<use images/linearpockettest.png>
+Package pdftex.def Info: images/linearpockettest.png  used on input line 14.
+(pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
+<images/logisticReg.png, id=3, 642.4pt x 481.8pt>
+File: images/logisticReg.png Graphic file (type png)
+<use images/logisticReg.png>
+Package pdftex.def Info: images/logisticReg.png  used on input line 17.
+(pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
+<images/logisticRegtest.png, id=4, 642.4pt x 481.8pt>
+File: images/logisticRegtest.png Graphic file (type png)
+<use images/logisticRegtest.png>
+Package pdftex.def Info: images/logisticRegtest.png  used on input line 18.
+(pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 12--19
 
-Overfull \hbox (15.21437pt too wide) in paragraph at lines 23--31
-[] 
  []
 
 [1
 
-{C:/Users/ardennt/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] (hw7.aux) ) 
+{C:/Users/ardennt/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./images/linearpocket.png (PNG copy)> <./images/linearpockettest.png (PNG copy)>]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 20.
+ (D:\HDD Apps\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
+ (D:\HDD Apps\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \hbox (badness 10000) in paragraph at lines 19--23
+
+ []
+
+[2 <./images/logisticReg.png (PNG copy)> <./images/logisticRegtest.png (PNG copy)>]
+<images/linearpocket3rd.png, id=16, 642.4pt x 481.8pt>
+File: images/linearpocket3rd.png Graphic file (type png)
+<use images/linearpocket3rd.png>
+Package pdftex.def Info: images/linearpocket3rd.png  used on input line 48.
+(pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
+<images/linearpocket3rdtest.png, id=17, 642.4pt x 481.8pt>
+File: images/linearpocket3rdtest.png Graphic file (type png)
+<use images/linearpocket3rdtest.png>
+Package pdftex.def Info: images/linearpocket3rdtest.png  used on input line 49.
+(pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
+ [3] [4 <./images/linearpocket3rd.png (PNG copy)> <./images/linearpocket3rdtest.png (PNG copy)>]
+Overfull \hbox (11.88104pt too wide) in paragraph at lines 75--83
+[] 
+ []
+
+
+Overfull \hbox (15.21437pt too wide) in paragraph at lines 84--92
+[] 
+ []
+
+[5] [6] (hw7.aux) ) 
 Here is how much of TeX's memory you used:
- 3512 strings out of 475389
- 53119 string characters out of 2789154
- 409415 words of memory out of 3000000
- 24874 multiletter control sequences out of 15000+600000
- 470958 words of font info for 36 fonts, out of 8000000 for 9000
+ 3558 strings out of 475389
+ 54373 string characters out of 2789154
+ 408415 words of memory out of 3000000
+ 24911 multiletter control sequences out of 15000+600000
+ 471266 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,8n,62p,389b,361s stack positions out of 10000i,1000n,20000p,200000b,80000s
-<D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on hw7.pdf (2 pages, 53232 bytes).
+ 55i,11n,62p,625b,514s stack positions out of 10000i,1000n,20000p,200000b,80000s
+<D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on hw7.pdf (6 pages, 275504 bytes).
 PDF statistics:
- 29 PDF objects out of 1000 (max. 8388607)
+ 62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

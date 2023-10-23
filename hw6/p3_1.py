@@ -83,8 +83,8 @@ def perceptron(points):
 # takes in points x[0] = x1, x[1] = x2, x[2] = output
 # points is a list
 def linearRegression(points):
-    X = np.array([[1, x[0], x[1]] for x in points])
-    y = np.array([-1 if x[2] == 1 else 1 for x in points])
+    X = np.array([[1] + x[:-1] for x in points])
+    y = np.array([x[-1] for x in points])
 
     XT = np.transpose(X)
     XTX = np.dot(XT, X)
