@@ -8,7 +8,15 @@
 \begin{document}
     \begin{enumerate}
         \item \begin{enumerate}[label=(\alph*)]
-            \item hi
+            \item Up \& more overfitting: deterministic noise depends on the target function $f$, so if the complexity of $f$ increases, the deterministic noise so generally increase as well. There is less overfitting when the target complexity is low, in this case it is increasing, so there's a higher tendency to overfit the data.
+            \item Up \& less overfitting: deterministic noise will generally go up because, relative to the fixed target function, $H$ becomes less complex. Target complexity is exponential when compared to overfitting, whereas noise is linear, so there will be less overfitting.
         \end{enumerate}
+
+        \item \begin{enumerate}[label=(\alph*)]
+            \item We try to satisfy the condition at 4.4, which tells us that $w^Tw \leq C$, to convert $w^T \Gamma^T \Gamma w \leq C$ to $w^Tw \leq C$, $\mathbf{\Gamma}$ \textbf{has to be the identity vector}, then the inverse of $\Gamma$ and its dot product is 1. Which satisfy the condition $w^Tw \leq C$.
+            \item TBD
+        \end{enumerate}
+
+        \item Hard-order constraint: we have the perceptron model which uses a linear model, we can define this as the hypothesis set $H_2$. When we compare $H_2$ and a higher order hypothesis set, let that be $H_{10}$, on a dataset with a lot of noise and low $N$, $H_2$ will have a smaller out of sample error due to its tendency to not overfit compared to $H_{10}$. So we place a hard-order constraint constraint on it and choose the simpler hypothesis, leading to a smaller $d_{vc}$ and a smaller $E_{out}$.
     \end{enumerate}
 \end{document}
