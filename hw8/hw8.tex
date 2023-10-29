@@ -51,17 +51,41 @@
         \item \begin{enumerate}[label=(\alph*)]
             \item \begin{align*}
                 \sigma^2_{val} &= var_{d_{val}}[E_{val}(g^-)]\\
-                &= var_{d_{val}}[\frac{1}{k}\sum_{x_n \in D_{val}}^{} e(g^-(x), y)]\\
-                &= \frac{1}{k}var_{d_{val}}[\sum_{x_n \in D_{val}}^{} e(g^-(x), y)]\\
-                &= \frac{1}{k}var_{d_{val}}[e(g^-(x_n), y)]\\
-                &= \frac{1}{k}var_{x_n}[e(g^-(x_n), y)]
+                &= var_{d_{val}}[\frac{1}{K}\sum_{x_n \in D_{val}}^{} e(g^-(x), y)]\\
+                &= \frac{1}{K}var_{d_{val}}[\sum_{x_n \in D_{val}}^{} e(g^-(x), y)]\\
+                &= \frac{1}{K}var_{d_{val}}[e(g^-(x_n), y)]\\
+                &= \frac{1}{K}var_{x_n}[e(g^-(x_n), y)]
             \end{align*}
             For x, we have:
             \begin{align*}
-                \frac{1}{k}var_x[e(g^-(x), y)]
+                \frac{1}{K}var_x[e(g^-(x), y)]
             \end{align*}
             We know that $\sigma^2(g^-) = var_x[e(g^-(x), y)]$, so $\sigma^2_{val} = \frac{1}{k}\sigma^2(g^-)$.
-            \item 
+            \item \begin{align*}
+                \sigma^2_{val} &= \frac{1}{K}var_{x}[e(g^-(x), y)]\\
+                &= \frac{1}{K}var_x[g(x) \neq y]
+            \end{align*}
+            We know $var_x = p(1-p)$, where $p = P[g(x) \neq y]$, so we can derive the following:
+            \begin{align*}
+                var_x[g(x) \neq y] &= (P[g(x) \neq y]) \times (1 - P[g(x) \neq y])\\
+                \sigma^2_{val} &= \frac{1}{K} (P[g(x) \neq y]) \times (1 - P[g(x) \neq y])\\
+                &= \frac{1}{K}(P[g(x) \neq y] - P[g(x) \neq y]^2)
+            \end{align*}
+
+            \item We maximize our probability to $\frac{1}{2}$ to give us the highest variance.
+            \begin{align*}
+                \sigma^2_{val} &= \frac{1}{K}(p - p^2)\\
+                &= \frac{\frac{1}{2} - (\frac{1}{2})^2}{K}\\
+                &= \frac{\frac{1}{4}}{K}\\
+                &= \frac{1}{4K}
+            \end{align*}
+            Since we have maximized the value $p$, then we have found the upper bound such to prove $\sigma^2_{val} \leq \frac{1}{4K}$
+
+            \item \textbf{No}, since there is no bound for the squared error, lets assume an arbitrary large error, meaning $g(x)$ and $y$ are very far apart. Our $Var$ depends on squared error, if squared error is unbounded, then $Var$ will similarly be unbounded, making it so there is no upper bound.
+            \item \textbf{Higher}, if you have fewer points, then you will have higher variance because the points can be more scattered. It is only when you have a large enough $N$ that the outliers will be more meaningless, which established the average. With a lower number of points, we would have higher squared error, since variance depends on squared error, we should have a higher variance too.
+            \item The more datapoints you use for validation, the more datapoints you lose out on creating your hypothesis $g$, which results in a larger $E_{out}$. The less datapoints you use for validation, the less expected error there would be since there will be a significant number of points used to calculate our hypothesis $g$, which results in a smaller $E_{out}$.
         \end{enumerate}
+
+        \item Yes, $E_m$ does not affect the training set, so it is not biased in estimating the out of sample error $E_{out}$.
     \end{enumerate}
 \end{document}
