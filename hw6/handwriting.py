@@ -203,8 +203,6 @@ def thirdOrderTransformPoints(points):
     return np.array(res)
 
 
-# 1 is 1, -1 is 5
-
 if "__main__" == __name__:
     thirdOrder = True
 
