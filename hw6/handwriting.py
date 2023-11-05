@@ -124,14 +124,15 @@ def pocket(points, w, iterations):
 
     return best_w
 
-def plotCurved(pocketW):
-    x1 = np.arange(0, 140, 1)
-    x2 = np.arange(0, 120, 1)
+def plotCurved(weight):
+    x1 = np.arange(-1.1, 1.1, 0.1)
+    x2 = np.arange(-1.1, 1.1, 0.1)
     X1, X2 = np.meshgrid(x1, x2)
-    Z = pocketW[0] + pocketW[1] * X1 + pocketW[2] * X2 + pocketW[3] * \
-        (X1 ** 2) + pocketW[4] * (X2 ** 2) + pocketW[5] * X1 * X2 + \
-        pocketW[6] * (X1 ** 3) + pocketW[7] * (X2 ** 3) + pocketW[8] * \
-        X1 * (X2 ** 2) + pocketW[9] * X2 * (X1 ** 2)
+
+    Z = weight[0] + weight[1] * X1 + weight[2] * X2 + weight[3] * \
+        (X1 ** 2) + weight[4] * (X2 ** 2) + weight[5] * X1 * X2 + \
+        weight[6] * (X1 ** 3) + weight[7] * (X2 ** 3) + weight[8] * \
+        X1 * (X2 ** 2) + weight[9] * X2 * (X1 ** 2)
 
     plt.contour(X1, X2, Z, [0])
     plt.axis([0, 140, 0, 120])
