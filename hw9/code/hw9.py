@@ -97,6 +97,32 @@ def linearRegression(points, regularization):
     return w
 
 
+def error(points, reg):
+    Z = np.array([x[:-1] for x in points])
+    Y = np.array([x[-1] for x in points])
+    dimensions = len(Z[0])
+
+    ZT = np.transpose(Z)
+    ZTZ = np.dot(ZT, Z)
+    ZTZ_reg = ZTZ + reg * np.identity(dimensions)
+    inverse = np.linalg.inv(ZTZ_reg)
+    H = np.dot(Z, inverse)
+    H = np.dot(H, ZT)
+    Yhat = np.dot(H, Y)
+
+    CV = 0
+    IN = 0
+    for n in range(len(points)):
+        yn = Y[n]
+        yHatn = Yhat[n]
+        Hnn = H[n][n]
+        currSum = ((yHatn - yn) / (1 - Hnn)) ** 2
+
+        IN += (yHatn - yn) ** 2
+        CV += currSum
+    return CV / len(points), IN / len(points)
+
+
 def plotCurved(weight):
     x1 = np.arange(-1.1, 1.1, 0.1)
     x2 = np.arange(-1.1, 1.1, 0.1)
@@ -111,16 +137,31 @@ def plotCurved(weight):
         Z.append(sumL)
 
     plt.contour(X1, X2, Z, [0])
-    # plt.axis([-1.1, 1.1, -1.1, 1.1])
-    # plt.show()
 
-    # Z = weight[0] + weight[1] * X1 + weight[2] * X2 + weight[3] * \
-    #     (X1 ** 2) + weight[4] * (X2 ** 2) + weight[5] * X1 * X2 + \
-    #     weight[6] * (X1 ** 3) + weight[7] * (X2 ** 3) + weight[8] * \
-    #     X1 * (X2 ** 2) + weight[9] * X2 * (X1 ** 2)
-    #
-    # plt.contour(X1, X2, Z, [0])
-    # plt.axis([0, 140, 0, 120])
+
+def crossValidation(points, minReg=0.01, maxReg=2):
+    x = np.arange(minReg, maxReg, 0.01)
+    yCV = []
+    yTEST = []
+    minCVError = 1
+    bestReg = 0
+    for i in range(len(x)):
+        reg = x[i]
+        g = linearRegression(points, reg)
+        CVError, TESTError = error(points, reg)
+        yCV.append(CVError)
+        yTEST.append(TESTError)
+
+        if CVError < minCVError:
+            minCVError = CVError
+            bestReg = x[i]
+
+    plt.plot(x, yCV, label="E CV")
+    plt.plot(x, yTEST, label="E test")
+    plt.legend()
+    plt.show()
+
+    return bestReg
 
 
 if __name__ == "__main__":
@@ -128,14 +169,22 @@ if __name__ == "__main__":
     data = Dtrain_Dtest(file)
     trainingData = data[0]
     testingData = data[1]
+    trainingData8th = transformData8th(trainingData)
+    testingData8th = transformData8th(testingData)
 
     # 1
+    # g = linearRegression(trainingData8th, 2)
+    # plotCurved(g)
+    # plot(trainingData)
+    # plotCurved(g)
+    # plot(testingData)
 
-    trainingData8th = transformData8th(trainingData)
-    g = linearRegression(trainingData8th, 2)
-    plotCurved(g)
-    plot(trainingData)
+    # cross validation
+    bestReg = crossValidation(testingData8th, 0.1, 5)
+    print("bestReg: {}".format(bestReg))
+    g = linearRegression(testingData8th, bestReg)
     plotCurved(g)
     plot(testingData)
+    plt.show()
 
     print("done")
