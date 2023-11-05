@@ -144,6 +144,7 @@ def crossValidation(points, minReg=0.01, maxReg=2):
     yCV = []
     yTEST = []
     minCVError = 1
+    minINError = 1
     bestReg = 0
     for i in range(len(x)):
         reg = x[i]
@@ -156,12 +157,14 @@ def crossValidation(points, minReg=0.01, maxReg=2):
             minCVError = CVError
             bestReg = x[i]
 
+        minINError = min(TESTError, minINError)
+
     plt.plot(x, yCV, label="E CV")
     plt.plot(x, yTEST, label="E test")
     plt.legend()
     plt.show()
 
-    return bestReg
+    return bestReg, minCVError, minINError
 
 
 if __name__ == "__main__":
@@ -180,9 +183,10 @@ if __name__ == "__main__":
     # plot(testingData)
 
     # cross validation
-    bestReg = crossValidation(testingData8th, 0.1, 5)
-    print("bestReg: {}".format(bestReg))
+    bestReg, bestRegError, bestINError = crossValidation(trainingData8th, 0.1, 5)
+    print("bestReg: {}, E_cv: {}, E_test: {}".format(bestReg, bestRegError, bestINError))
     g = linearRegression(testingData8th, bestReg)
+
     plotCurved(g)
     plot(testingData)
     plt.show()
