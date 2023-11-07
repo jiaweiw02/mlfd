@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{amsmath, amssymb, setspace, enumerate, enumitem}
+\usepackage{setspace}
+\usepackage{graphicx}
+\onehalfspacing
+
+\begin{document}
+    \begin{enumerate}
+        \item \begin{enumerate}[label=(\alph*)]
+            \item Two items will have high cosine similarity if they are pointing in roughly the same direction $\approx 1$, and they will have high Euclidean distance similarity if their points are far from each other.\\[0.25in]
+            Two vectors parallel to each other, pointing at the same direction, and are close to each other, will have high cosine similarity and low Euclidean distance similarity.\\[0.25in]
+            Two vectors parallel to each other, pointing in the opposite direction, and are far from each other, will have low cosine similarity and high Euclidean distance similarity.
+            \item Euclidean distance similarity will change as cosine similarity depends on the direction of the vector, not the distance between them.
+        \end{enumerate}
+    \end{enumerate}
+\end{document}
