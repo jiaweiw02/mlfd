@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.15)  9 NOV 2023 21:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.15)  11 NOV 2023 17:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -251,19 +251,36 @@ File: images/p6_1_b_3.png Graphic file (type png)
 <use images/p6_1_b_3.png>
 Package pdftex.def Info: images/p6_1_b_3.png  used on input line 27.
 (pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
- [2 <./images/p6_1_a_3.png (PNG copy)> <./images/p6_1_b.png (PNG copy)>] [3 <./images/p6_1_b_3.png (PNG copy)>] (hw10.aux) ) 
+ [2 <./images/p6_1_a_3.png (PNG copy)> <./images/p6_1_b.png (PNG copy)>]
+<images/6_3_1NN.png, id=16, 642.4pt x 481.8pt>
+File: images/6_3_1NN.png Graphic file (type png)
+<use images/6_3_1NN.png>
+Package pdftex.def Info: images/6_3_1NN.png  used on input line 30.
+(pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
+<images/6_3_3NN.png, id=17, 642.4pt x 481.8pt>
+File: images/6_3_3NN.png Graphic file (type png)
+<use images/6_3_3NN.png>
+Package pdftex.def Info: images/6_3_3NN.png  used on input line 31.
+(pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
+ [3 <./images/p6_1_b_3.png (PNG copy)> <./images/6_3_1NN.png (PNG copy)>]
+<images/p6_16_b.png, id=21, 642.4pt x 481.8pt>
+File: images/p6_16_b.png Graphic file (type png)
+<use images/p6_16_b.png>
+Package pdftex.def Info: images/p6_16_b.png  used on input line 37.
+(pdftex.def)             Requested size: 160.59961pt x 120.44969pt.
+ [4 <./images/6_3_3NN.png (PNG copy)> <./images/p6_16_b.png (PNG copy)>] [5] (hw10.aux) ) 
 Here is how much of TeX's memory you used:
- 3542 strings out of 475389
- 53749 string characters out of 2789154
+ 3563 strings out of 475389
+ 54199 string characters out of 2789154
  401417 words of memory out of 3000000
- 24898 multiletter control sequences out of 15000+600000
+ 24916 multiletter control sequences out of 15000+600000
  470958 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,5n,62p,358b,356s stack positions out of 10000i,1000n,20000p,200000b,80000s
-<D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on hw10.pdf (3 pages, 102979 bytes).
+ 55i,5n,62p,978b,362s stack positions out of 10000i,1000n,20000p,200000b,80000s
+<D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on hw10.pdf (5 pages, 195715 bytes).
 PDF statistics:
- 36 PDF objects out of 1000 (max. 8388607)
+ 50 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
