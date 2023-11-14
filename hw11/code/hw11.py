@@ -1,7 +1,9 @@
+import copy
 import time
 
+import matplotlib.pyplot as plt
 import numpy as np
-from knn import knn
+from knn import knn, plotDecisionRegion
 
 
 def generateData(filename):
@@ -87,7 +89,17 @@ def Dtrain_Dtest(filename):
     return res[0], res[1]
 
 
-def crossValidationNN(k, dTrain, dVal):
+def crossValidationNN(k, dTrain):
+    err = 0
+    for p in dTrain:
+        new_dTrain = copy.deepcopy(dTrain)
+        new_dTrain.remove(p)
+        if knn(k, new_dTrain, p[0]) != p[1]:
+            err += 1
+    return err / len(dTrain)
+
+
+def errorNN(k, dTrain, dVal):
     err = 0
     for p in dVal:
         if knn(k, dTrain, p[0]) != p[1]:
@@ -95,19 +107,40 @@ def crossValidationNN(k, dTrain, dVal):
     return err / len(dVal)
 
 
+def plotCVNN(dTrain):
+    currTime = time.time()
+    lowest = 1
+    lowestK = 0
+
+    kX = range(1, len(dTrain) // 2)
+    kY = []
+    for k in range(1, len(dTrain) // 2):
+        curr = crossValidationNN(k, dTrain)
+        kY.append(curr)
+        if curr < lowest:
+            lowest = curr
+            lowestK = k
+    print("Took: {}".format((time.time() - currTime)))
+
+    plt.plot(kX, kY)
+    plt.xlabel("k")
+    plt.ylabel("E_val")
+    plt.show()
+    return lowestK, lowest
+
+
+def p1(trainingD, testingD):
+    bestK, lowestCVError = plotCVNN(trainingD)
+    plotDecisionRegion(3, trainingD, 1.1, 1.1, False)
+
+    print("bestK:", bestK)
+    print("cross validation error:", lowestCVError)
+    print("test error:", errorNN(bestK, trainingD, testingD))
+
+
 if __name__ == "__main__":
     file = "ZipDigits.all"
     data = Dtrain_Dtest(file)
     trainingData = data[0]
     testingData = data[1]
-
-    currTime = time.time()
-    lowest = 1
-    lowestK = 0
-    for k in range(1, len(trainingData) // 2):
-        curr = crossValidationNN(k, trainingData, testingData)
-        if curr < lowest:
-            lowest = curr
-            lowestK = k
-
-    print("Took: {}".format((time.time() - currTime) * 100))
+    p1(trainingData, testingData)

@@ -70,8 +70,8 @@ def distance(p1, p2):
 
 
 def plotDecisionRegion(k, data, xRange, yRange, transformed, plot=True):
-    x1s = np.arange(-xRange, xRange, 1)
-    x2s = np.arange(-yRange, yRange, 1)
+    x1s = np.arange(-xRange, xRange, 0.05)
+    x2s = np.arange(-yRange, yRange, 0.05)
     transformedData = nonLinearTransform(data) if transformed else None
 
     for x1 in x1s:
