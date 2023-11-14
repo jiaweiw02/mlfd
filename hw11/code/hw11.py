@@ -1,3 +1,5 @@
+import time
+
 import numpy as np
 from knn import knn
 
@@ -98,6 +100,14 @@ if __name__ == "__main__":
     data = Dtrain_Dtest(file)
     trainingData = data[0]
     testingData = data[1]
-    
+
+    currTime = time.time()
+    lowest = 1
+    lowestK = 0
     for k in range(1, len(trainingData) // 2):
-        print("{}: {}".format(k, crossValidationNN(k, trainingData, testingData)))
+        curr = crossValidationNN(k, trainingData, testingData)
+        if curr < lowest:
+            lowest = curr
+            lowestK = k
+
+    print("Took: {}".format((time.time() - currTime) * 100))
