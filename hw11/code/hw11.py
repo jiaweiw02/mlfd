@@ -1,4 +1,5 @@
 import numpy as np
+from knn import knn
 
 
 def generateData(filename):
@@ -38,7 +39,7 @@ def computeIntensity(data):
         minH, maxH = min(minH, horIntensity), max(maxH, horIntensity)
         minV, maxV = min(minV, verIntensity), max(maxV, verIntensity)
 
-        intensities.append([horIntensity, verIntensity, 1 if dig == 1 else -1])
+        intensities.append(([horIntensity, verIntensity], 1 if dig == 1 else -1))
     return intensities, (minH, maxH), (minV, maxV)
 
 
@@ -50,9 +51,9 @@ def normalize(d, H, V):
 
     res = []
     for point in d:
-        x1 = (point[0] - HShift) * HScale
-        x2 = (point[1] - VShift) * VScale
-        res.append([x1, x2, point[2]])
+        x1 = (point[0][0] - HShift) * HScale
+        x2 = (point[0][1] - VShift) * VScale
+        res.append(([x1, x2], point[1]))
     return res
 
 
@@ -85,7 +86,11 @@ def Dtrain_Dtest(filename):
 
 
 def crossValidationNN(k, dTrain, dVal):
-    pass
+    err = 0
+    for p in dVal:
+        if knn(k, dTrain, p[0]) != p[1]:
+            err += 1
+    return err / len(dVal)
 
 
 if __name__ == "__main__":
@@ -93,3 +98,6 @@ if __name__ == "__main__":
     data = Dtrain_Dtest(file)
     trainingData = data[0]
     testingData = data[1]
+    
+    for k in range(1, len(trainingData) // 2):
+        print("{}: {}".format(k, crossValidationNN(k, trainingData, testingData)))

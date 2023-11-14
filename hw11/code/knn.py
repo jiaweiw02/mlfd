@@ -53,6 +53,7 @@ def createCircleRev(thk, rad, sep, points):
 
     return plus1, minus1
 
+
 def knn(k, data, point):
     distances = [(p, y, distance(p, point)) for p, y in data]
     distances = sorted(distances, key=lambda x: x[2])
