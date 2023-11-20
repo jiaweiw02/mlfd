@@ -186,7 +186,6 @@ if __name__ == "__main__":
     bestReg, bestRegError, bestINError = crossValidation(trainingData8th, 0.1, 5)
     print("bestReg: {}, E_cv: {}, E_test: {}".format(bestReg, bestRegError, bestINError))
     g = linearRegression(testingData8th, bestReg)
-
     plotCurved(g)
     plot(testingData)
     plt.show()
