@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.15)  29 NOV 2023 19:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.15)  29 NOV 2023 19:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -231,7 +231,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  55i,5n,62p,268b,241s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on hw12.pdf (1 page, 14724 bytes).
+Output written on hw12.pdf (1 page, 16847 bytes).
 PDF statistics:
  11 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
