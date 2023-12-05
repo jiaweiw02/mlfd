@@ -40,6 +40,11 @@
                 \end{align*}
             \item $h(x) = \text{sign}(x^3_1 - x_2 + x_1x_2)$
         \end{enumerate}
-    \item FINISH
+    \item \begin{enumerate}[label=(\alph*)]
+        \item For small $C$, the value $C = 0.01$ was chosen, the following plot was generated with the plotted decision regions:\\\includegraphics[scale=0.5]{images/4aregsmall.png}
+        \\ For large $C$, the value $C = 10$ was chosen, the decision boundary was:\\\includegraphics[scale=0.5]{images/4reglarge.png}
+        \item For a small $C$, the complexity was low, we see more of less balanced regions of blues and reds for the decision boundary. When increasing the complexity, we see that the reds in the center have a smaller margin, meaning that the decision boundaries are more complex as also seen by the small bulbs of blue appearing on the sides.
+        \item After running $C$ from $0.01$ to $10$, the lowest $C$ achieved was at $C = 1.77$, it had a $E_{test} = 0.031738$, the following decision boundary is plotted with the validation set data:\\\includegraphics[scale=0.5]{images/4c.png}
+    \end{enumerate}
     \end{enumerate}
 \end{document}

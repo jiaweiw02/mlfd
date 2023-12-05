@@ -1,4 +1,6 @@
 import numpy as np
+from matplotlib import pyplot as plt
+from sklearn.svm import SVC
 from hw9 import Dtrain_Dtest
 
 
@@ -38,9 +40,93 @@ def p1():
     print(Ein)
 
 
+def p2():
+    pass
+
+
+def p4CV(y1, y2):
+    if len(y1) != len(y2):
+        print("not same length")
+        return 0
+
+    err = 0
+    for i in range(len(y1)):
+        if y1[i] != y2[i]:
+            err += 1
+    return err / len(y1)
+
+
+def p4a(trainingData ,regularizer, scale, step, testingData=None):
+    X, y = switchData(trainingData)
+    SVM = SVC(kernel="poly", degree=8, C=regularizer)
+    SVM.fit(X, y)
+
+    x1s = np.arange(-scale, scale, step)
+    x2s = np.arange(-scale, scale, step)
+
+    # # uncomment for problem 4(a) # # #
+    newX = []
+    for x1 in x1s:
+        for x2 in x2s:
+            newX.append((x1, x2))
+
+    outputs = SVM.predict(newX)
+    i = 0
+    for x1 in x1s:
+        for x2 in x2s:
+            Color = (0.68, 0.85, 0.90) if outputs[i] == 1 else (1.0, 0.71, 0.76)
+            plt.plot(x1, x2, marker="o", color=Color)
+            i += 1
+
+    if testingData:
+        Xtest, yTest = switchData(testingData)
+        for i in range(len(Xtest)):
+            Color = "blue" if yTest[i] == 1 else "red"
+            Label = "o" if yTest[i] == 1 else "x"
+            plt.plot(Xtest[i][0], Xtest[i][1], marker=Label, color=Color)
+    else:
+        for i in range(len(X)):
+            Color = "blue" if y[i] == 1 else "red"
+            Label = "o" if y[i] == 1 else "x"
+            plt.plot(X[i][0], X[i][1], marker=Label, color=Color)
+
+    plt.show()
+
+
+def p4c(trainingData, testingData):
+    X, y = switchData(trainingData)
+    Xtest, yTest = switchData(testingData)
+    i = 0.01
+    lowestErr = 1
+    lowestC = 0
+    while i <= 10:
+        SVM = SVC(kernel="poly", degree=8, C=i)
+        SVM.fit(X, y)
+        outputs = SVM.predict(Xtest)
+        currErr = p4CV(yTest, outputs)
+        if currErr < lowestErr:
+            lowestErr = currErr
+            lowestC = i
+        i += 0.01
+
+    print("lowestC: {}, lowestErr: {}".format(lowestC, lowestErr))
+    p4a(trainingData, lowestC, 1, 0.05, testingData)
+
+
+
+def p4(trainingData, testingData, regularizer=0.01, scale=1, step=0.05):
+    # p4a(trainingData, regularizer, scale, step)
+    p4c(trainingData, testingData)
+
+
+def switchData(data):
+    X = [(d[0], d[1]) for d in data]
+    y = [d[2] for d in data]
+    return X, y
+
+
 if "__main__" == __name__:
-    p1()
+    # p1()
     file = "ZipDigits.all"
-    data = Dtrain_Dtest(file)
-    trainingData = data[0]
-    testingData = data[1]
+    trainingData, testingData = Dtrain_Dtest(file)
+    p4(trainingData, testingData, regularizer=10, step=0.05)
