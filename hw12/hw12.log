@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.15)  4 DEC 2023 20:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.15)  6 DEC 2023 11:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -242,42 +242,58 @@ Overfull \hbox (10.87122pt too wide) in paragraph at lines 12--20
 \OT1/cmr/m/n/10 ] [0.13792005 0.13792005]] w2: [[0.47200485] [0.47200485]]. $\OML/cmm/m/it/10 E[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 w\OT1/cmr/m/n/10 )$ was 0.31737905364130986 
  []
 
-<images/3c.png, id=1, 1437.87187pt x 679.03688pt>
-File: images/3c.png Graphic file (type png)
-<use images/3c.png>
-Package pdftex.def Info: images/3c.png  used on input line 28.
-(pdftex.def)             Requested size: 359.46709pt x 169.7588pt.
+<images/2a1.png, id=1, 642.4pt x 481.8pt>
+File: images/2a1.png Graphic file (type png)
+<use images/2a1.png>
+Package pdftex.def Info: images/2a1.png  used on input line 22.
+(pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
+<images/2a2.png, id=2, 642.4pt x 481.8pt>
+File: images/2a2.png Graphic file (type png)
+<use images/2a2.png>
+Package pdftex.def Info: images/2a2.png  used on input line 23.
+(pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
+<images/2a3.png, id=3, 642.4pt x 481.8pt>
+File: images/2a3.png Graphic file (type png)
+<use images/2a3.png>
+Package pdftex.def Info: images/2a3.png  used on input line 25.
+(pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
 [1
 
-{C:/Users/ardennt/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./images/3c.png>]
-<images/4aregsmall.png, id=14, 642.4pt x 481.8pt>
+{C:/Users/ardennt/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./images/2a1.png (PNG copy)>] [2 <./images/2a2.png (PNG copy)> <./images/2a3.png (PNG copy)>]
+<images/3c.png, id=17, 1437.87187pt x 679.03688pt>
+File: images/3c.png Graphic file (type png)
+<use images/3c.png>
+Package pdftex.def Info: images/3c.png  used on input line 36.
+(pdftex.def)             Requested size: 359.46709pt x 169.7588pt.
+<images/4aregsmall.png, id=19, 642.4pt x 481.8pt>
 File: images/4aregsmall.png Graphic file (type png)
 <use images/4aregsmall.png>
-Package pdftex.def Info: images/4aregsmall.png  used on input line 44.
+Package pdftex.def Info: images/4aregsmall.png  used on input line 52.
 (pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
-<images/4reglarge.png, id=15, 642.4pt x 481.8pt>
+<images/4reglarge.png, id=20, 642.4pt x 481.8pt>
 File: images/4reglarge.png Graphic file (type png)
 <use images/4reglarge.png>
-Package pdftex.def Info: images/4reglarge.png  used on input line 45.
+Package pdftex.def Info: images/4reglarge.png  used on input line 53.
 (pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
-<images/4c.png, id=16, 642.4pt x 481.8pt>
+ [3 <./images/3c.png>]
+<images/4c.png, id=26, 642.4pt x 481.8pt>
 File: images/4c.png Graphic file (type png)
 <use images/4c.png>
-Package pdftex.def Info: images/4c.png  used on input line 47.
+Package pdftex.def Info: images/4c.png  used on input line 55.
 (pdftex.def)             Requested size: 321.19922pt x 240.8994pt.
- [2 <./images/4aregsmall.png (PNG copy)> <./images/4reglarge.png (PNG copy)>] [3 <./images/4c.png (PNG copy)>] (hw12.aux) ) 
+ [4 <./images/4aregsmall.png (PNG copy)> <./images/4reglarge.png (PNG copy)>] [5 <./images/4c.png (PNG copy)>] (hw12.aux) ) 
 Here is how much of TeX's memory you used:
- 3542 strings out of 475389
- 53714 string characters out of 2789154
+ 3565 strings out of 475389
+ 54101 string characters out of 2789154
  404417 words of memory out of 3000000
- 24898 multiletter control sequences out of 15000+600000
- 470958 words of font info for 36 fonts, out of 8000000 for 9000
+ 24917 multiletter control sequences out of 15000+600000
+ 471266 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,8n,62p,544b,367s stack positions out of 10000i,1000n,20000p,200000b,80000s
-<D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on hw12.pdf (3 pages, 274246 bytes).
+ 55i,8n,62p,544b,365s stack positions out of 10000i,1000n,20000p,200000b,80000s
+<D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/HDD Apps/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on hw12.pdf (5 pages, 346339 bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
+ 62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

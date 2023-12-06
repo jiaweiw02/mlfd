@@ -40,8 +40,61 @@ def p1():
     print(Ein)
 
 
-def p2():
-    pass
+# def p2(trainingData):
+#     x, y = switchData(trainingData)
+#     x = np.array(x)
+#     y = np.array(y)
+#     m = 10
+#
+#     wHidden = [np.full((2, 2), 0.15) for _ in range(m)]
+#     wOutput = np.full((2, 1), 0.15)
+#
+#     activations = [x.T]
+#     for i in range(m):
+#         s = np.dot(wHidden[i].T, activations[-1])
+#         tmpX = np.tanh(s)
+#         activations.append(tmpX)
+#
+#     output = np.dot(wOutput.T, activations[-1])
+#     activations.append(output)
+#
+#     Ein = (1 / 4) * np.sum((output - y.reshape(1, -1)) ** 2, axis=1).mean()
+#     print(Ein)
+
+def p2(trainingData):
+    x, y = switchData(trainingData)
+    X = np.array(x)
+    y = np.array(y)
+    # Initialize weights
+    w = np.random.randn(X.shape[1])
+
+    # Learning rate parameters
+    learningRate = 0.1
+    decayRate = 0.001
+    iter = 1000
+
+    EinStore = []
+    lowest = 1
+    for t in range(iter):
+        learningT = learningRate / (1 + t * decayRate)
+        gradient = np.dot(X.T, np.dot(X, w) - y) / len(X)
+        w -= learningT * gradient
+        Ein = np.mean((np.dot(X, w) - y) ** 2)
+        lowest = min(lowest, Ein)
+        EinStore.append(Ein)
+
+    print("lowest Ein: {}".format(lowest))
+    plt.plot(range(iter), EinStore)
+    plt.xlabel('iter')
+    plt.ylabel('error')
+    plt.show()
+
+    # WRONGGGG
+    # xBound = np.array([X[:, 0].min(), X[:, 0].max()])
+    # yBound = -(w[0] * xBound + 0) / w[1]
+    # plt.scatter(X[:, 0], X[:, 1], c=y)
+    # plt.plot(xBound, yBound)
+    # plt.show()
 
 
 def p4CV(y1, y2):
@@ -120,7 +173,7 @@ def p4(trainingData, testingData, regularizer=0.01, scale=1, step=0.05):
 
 
 def switchData(data):
-    X = [(d[0], d[1]) for d in data]
+    X = [[d[0], d[1]] for d in data]
     y = [d[2] for d in data]
     return X, y
 
@@ -129,4 +182,5 @@ if "__main__" == __name__:
     # p1()
     file = "ZipDigits.all"
     trainingData, testingData = Dtrain_Dtest(file)
-    p4(trainingData, testingData, regularizer=10, step=0.05)
+    # p4(trainingData, testingData, regularizer=10, step=0.05)
+    p2(trainingData)

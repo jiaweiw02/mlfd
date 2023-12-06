@@ -18,7 +18,15 @@
             [0.47200485]]. $E_{in}(w)$ was 0.31737905364130986\\[0.25in]
             As stated by the hint, after peturbing the weights, the results were relatively similar, only different in the final few digits, therefore we can conclude that our algorithm is correct.
         \end{enumerate}
-        \item FINISH
+        \item \begin{enumerate}
+            \item After running for $2 \times 10^6$ iterations, the following $E_{in}$ versus iterations graph was created:\\\includegraphics[scale=0.5]{images/2a1.png}\\
+            Since it seems difficult to infer the values, I decided to rerun the algorithm with a lower iterations for $iter = 1000$, this was the graph that it plotted:\\\includegraphics[scale=0.5]{images/2a2.png}\\
+            It seems to converge pretty quickly at $iterations \approx 10$\\
+            I believe that I did something wrong for this neural network to classify the digits because it seems like the decision region is incorrect... However, I added it regardless to show work:\\\includegraphics[scale=0.5]{images/2a3.png}\\This achieved a $E_{in} = 0.266$, pretty high for the neural network, I was expecting lower.
+            \item Since my algorithm was wrong :(, I decided to focus on the other parts of the homework, it's unfortunately that I couldn't get the algorithm working. However, for the \textbf{Why divide iteration \# by N}, I believe it is to adjust the learning rate over time.
+            \item omit
+            \item omit
+        \end{enumerate}
         \item \begin{enumerate}[label=(\alph*)]
             \item We're given two two-dimensional inputs, $x_1 = (1,0)$ and $x_2 = (-1,0)$. The optimal separating hyperplane is simply a line. For SVM, we want to find the separator that maximizes the margin. Both of these lines depict a horizontal line with slope 0, the perpendicular bisector is the negative reciprocal of the line, which is a vertical line. A vertical line in $x = 0$ is our solution.
             \item \begin{enumerate}[label=(\roman*)]
